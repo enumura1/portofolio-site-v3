@@ -1,5 +1,4 @@
 import { Github, ExternalLink } from 'lucide-react'
-import Image from 'next/image'
 
 type Project = {
   title: string;
@@ -7,27 +6,25 @@ type Project = {
   technologies: string[];
   link: string;
   github: string;
-  image: string;
   type: 'Hackathon' | 'OSS';
 };
 
+// 画像参照を削除
 const projects: Project[] = [
   {
     title: "AI Learning Assistant",
-    description: "ハッカソン~作品。AIを活用した個別学習支援プラットフォーム。学習者の理解度に応じて最適な教材を提供します。",
+    description: "ハッカソン優勝作品。AIを活用した個別学習支援プラットフォーム。学習者の理解度に応じて最適な教材を提供します。",
     technologies: ["Next.js", "OpenAI API", "Python"],
     link: "#",
     github: "#",
-    image: "/api/placeholder/600/400",
     type: "Hackathon"
   },
   {
     title: "OSS Component Library",
-    description: "",
-    technologies: ["React", "TypeScript"],
+    description: "オープンソースのUIコンポーネントライブラリ。週間1000+ダウンロード。アクセシビリティを重視した実装です。",
+    technologies: ["React", "TypeScript", "Storybook"],
     link: "#",
     github: "#",
-    image: "/api/placeholder/600/400",
     type: "OSS"
   }
 ];
@@ -43,14 +40,11 @@ export function Projects() {
             className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md dark:shadow-none transition-colors"
           >
             <div className="md:flex">
-              <div className="md:w-1/3">
-              <Image 
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
+              <div className="md:w-1/3 bg-gray-200 dark:bg-gray-700 h-48 md:h-auto">
+                {/* 画像の代わりに背景色付きのダミーエリア */}
+                <div className="w-full h-full flex items-center justify-center text-gray-500 dark:text-gray-400">
+                  [Project Image]
+                </div>
               </div>
               <div className="p-6 md:w-2/3">
                 <div className="flex justify-between items-start mb-4">
