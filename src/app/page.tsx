@@ -19,9 +19,9 @@ export default function Home() {
       <About />
       <Timeline />
       <Certifications />
-      <Projects />
       <Articles />
       <Blog />
+      <Projects />
     </main>
   )
 }

@@ -23,6 +23,12 @@ const timeline: TimelineItem[] = [
     company: "c",
     role: "c",
     description: "c"
+  },
+  {
+    year: "2022",
+    company: "c",
+    role: "c",
+    description: "c"
   }
 ];
 

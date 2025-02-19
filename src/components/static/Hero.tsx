@@ -7,7 +7,7 @@ export function Hero() {
         <h1 className="text-6xl font-bold mb-4">enumura1</h1>
         <p className="text-xl mb-8">
           <span className="text-gray-600 dark:text-gray-300">
-            Frontend Developer & Technical Writer
+            Web Frontend Developer & Indie Hacker
           </span>
         </p>
         <div className="flex space-x-6 justify-center">
