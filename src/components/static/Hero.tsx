@@ -4,7 +4,7 @@ export function Hero() {
   return (
     <section className="h-screen flex flex-col justify-center items-center px-4">
       <div className="text-center">
-        <h1 className="text-6xl font-bold mb-4">Your Name</h1>
+        <h1 className="text-6xl font-bold mb-4">enumura1</h1>
         <p className="text-xl mb-8">
           <span className="text-gray-600 dark:text-gray-300">
             Frontend Developer & Technical Writer

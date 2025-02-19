@@ -13,7 +13,7 @@ import { Blog } from '@/components/dynamic/Blog'
 
 export default function Home() {
   return (
-    <main className="min-h-screen text-gray-900 dark:text-white transition-colors duration-200">
+    <main className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-200">
       <ThemeSwitcher />
       <Hero />
       <About />
