@@ -1,4 +1,4 @@
-import { Github, Twitter, Mail, ChevronDown } from 'lucide-react'
+import { Github, Share2 , Mail, ChevronDown } from 'lucide-react'
 
 export function Hero() {
   return (
@@ -25,7 +25,7 @@ export function Hero() {
             rel="noopener noreferrer"
             className="hover:text-blue-400 transition-colors"
           >
-            <Twitter size={24} />
+            <Share2  size={24} />
           </a>
           <a 
             href="mailto:your@email.com"
@@ -36,7 +36,7 @@ export function Hero() {
         </div>
       </div>
       <div className="absolute bottom-8 animate-bounce">
-        <ChevronDown size={32} />
+        <ChevronDown size={48} />
       </div>
     </section>
   )
