@@ -6,6 +6,7 @@ import { About } from '@/components/static/About'
 import { Timeline } from '@/components/static/Timeline'
 import { Certifications } from '@/components/static/Certifications'
 import { Projects } from '@/components/static/Projects'
+import { Footer } from '@/components/static/Footer'
 
 // dynamic
 import { Articles } from '@/components/dynamic/Articles'
@@ -22,6 +23,7 @@ export default function Home() {
       <Articles />
       <Blog />
       <Projects />
+      <Footer />
     </main>
   )
 }
