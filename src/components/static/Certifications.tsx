@@ -10,7 +10,7 @@ type Certification = {
       title: "AWS Solutions Architect Associate",
       date: "2024",
       issuer: "Amazon Web Services",
-      icon: "🏆"
+      icon: "✅"
     }
   ];
   

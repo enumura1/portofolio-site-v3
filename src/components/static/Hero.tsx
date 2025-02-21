@@ -1,4 +1,4 @@
-import { Github, Share2 , Mail, ChevronDown } from 'lucide-react'
+import { Github, Share2, Mail, ChevronDown } from 'lucide-react'
 
 export function Hero() {
   return (
@@ -10,7 +10,7 @@ export function Hero() {
             Web Frontend Developer & Indie Hacker
           </span>
         </p>
-        <div className="flex space-x-6 justify-center">
+        <div className="flex space-x-6 justify-center items-center">
           <a 
             href="https://github.com/" 
             target="_blank"
@@ -25,13 +25,37 @@ export function Hero() {
             rel="noopener noreferrer"
             className="hover:text-blue-400 transition-colors"
           >
-            <Share2  size={24} />
+            <Share2 size={24} />
           </a>
           <a 
             href="mailto:your@email.com"
             className="hover:text-blue-400 transition-colors"
           >
             <Mail size={24} />
+          </a>
+          <a 
+            href="https://zenn.dev/enumura" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-base font-medium hover:text-blue-400 transition-colors"
+          >
+            Zenn
+          </a>
+          <a 
+            href="https://qiita.com/enumura1" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-base font-medium hover:text-blue-400 transition-colors"
+          >
+            Qiita
+          </a>
+          <a 
+            href="https://qiita.com/enumura1" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-base font-medium hover:text-blue-400 transition-colors"
+          >
+            hoge
           </a>
         </div>
       </div>

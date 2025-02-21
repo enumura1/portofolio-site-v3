@@ -1,6 +1,6 @@
 type TimelineItem = {
   year: string;
-  company: string;
+  topic: string;
   role: string;
   description: string;
 };
@@ -8,27 +8,27 @@ type TimelineItem = {
 const timeline: TimelineItem[] = [
   {
     year: "2025",
-    company: "a",
-    role: "a",
-    description: "a"
+    topic: "Backend & Frontend Development",
+    role: "Front ~ Backend Developer",
+    description: "Backend development with AWS. Frontend development with React for personal projects."
   },
   {
     year: "2024",
-    company: "b",
-    role: "b",
-    description: "b"
+    topic: "Backend & Frontend Development",
+    role: "Front ~ Backend Developer",
+    description: "AWS backend architecture and development. Continued React frontend development for personal projects."
   },
   {
     year: "2023",
-    company: "c",
-    role: "c",
-    description: "c"
+    topic: "AWS & Web Development",
+    role: "Frontend Developer",
+    description: "AWS infrastructure and CI/CD pipeline implementation. React frontend development."
   },
   {
     year: "2022",
-    company: "c",
-    role: "c",
-    description: "c"
+    topic: "Mobile Development",
+    role: "React Native Developer",
+    description: "Mobile app development with React Native in team environment. Frontend web development as secondary role."
   }
 ];
 
@@ -47,8 +47,8 @@ export function Timeline() {
             
             {/* カードコンテンツ */}
             <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md dark:shadow-none transition-colors">
-              <div className="text-sm text-blue-500 font-semibold mb-2">{item.year}</div>
-              <h3 className="text-xl font-bold mb-2">{item.company}</h3>
+              <div className="text-lg text-blue-500 font-bold mb-3">{item.year}</div>
+              <h3 className="text-xl font-bold mb-2">{item.topic}</h3>
               <div className="text-lg mb-2">{item.role}</div>
               <p className="text-gray-600 dark:text-gray-300">
                 {item.description}
