@@ -17,9 +17,9 @@ const timeline: TimelineItem[] = [
   },
   {
     year: "2023",
-    topic: "AWS & Frontend Development",
-    description: "AWS infrastructure and CI/CD pipeline implementation. React frontend development."
-  },
+    topic: "System Design & Frontend Development",
+    description: "AWS system architecture design and operation maintenance. React frontend development.",
+   },
   {
     year: "2022",
     topic: "Mobile Development",
@@ -30,7 +30,7 @@ const timeline: TimelineItem[] = [
 export function Timeline() {
   return (
     <section className="py-20 px-4 max-w-4xl mx-auto">
-      <h2 className="text-4xl font-bold mb-8">Dev Experience</h2>
+      <h2 className="text-4xl font-bold mb-8">🛠️Dev Experience</h2>
       <div className="relative">
         {/* 縦線を丸の中央に配置 */}
         <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-blue-500"></div>

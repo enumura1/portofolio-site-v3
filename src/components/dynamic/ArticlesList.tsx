@@ -39,7 +39,7 @@ export async function ArticlesList() {
       
       <div className="text-center mt-8">
         <a
-          href="https://qiita.com/あなたのユーザー名"
+          href="https://qiita.com/enumura1"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center px-6 py-3 text-sm font-medium text-blue-500 hover:text-blue-400 transition-colors"

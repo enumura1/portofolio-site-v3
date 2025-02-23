@@ -1,6 +1,5 @@
-import { ThemeSwitcher } from '@/components/ui/theme-switcher'
-
 // static
+import { Header } from '@/components/static/Header'
 import { Hero } from '@/components/static/Hero'
 import { About } from '@/components/static/About'
 import { Timeline } from '@/components/static/Timeline'
@@ -14,16 +13,18 @@ import { Blog } from '@/components/dynamic/Blog'
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-200">
-      <ThemeSwitcher />
-      <Hero />
-      <About />
-      <Timeline />
-      <Certifications />
-      <Articles />
-      <Blog />
-      <Projects />
-      <Footer />
-    </main>
+    <>
+      <Header />
+      <main className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-200">
+        <Hero />
+        <About />
+        <Timeline />
+        <Certifications />
+        <Articles />
+        <Blog />
+        <Projects />
+        <Footer />
+      </main>
+    </>
   )
 }

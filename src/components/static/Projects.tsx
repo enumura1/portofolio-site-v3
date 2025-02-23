@@ -9,22 +9,21 @@ type Project = {
   type: 'Hackathon' | 'OSS';
 };
 
-// 画像参照を削除
 const projects: Project[] = [
   {
-    title: "AI Learning Assistant",
-    description: "ハッカソン優勝作品。AIを活用した個別学習支援プラットフォーム。学習者の理解度に応じて最適な教材を提供します。",
-    technologies: ["Next.js", "OpenAI API", "Python"],
-    link: "#",
-    github: "#",
+    title: "カシカ - ビジネスチャットを図解で分かりやすく",
+    description: "ビジネスチャットでの説明を図解でサポートするAIアシスタント。300種類の図解テンプレートからRAGシステムを用いて最適な提案を行い、編集機能を提供するWebアプリケーション。2段階の検索プロセスによりコストを97%削減してみた。",
+    technologies: ["React", "Vite", "TypeScript", "shadcn/ui", "AWS Lambda", "Python", "Amazon Bedrock", "scikit-learn", "Docker"],
+    link: "https://protopedia.net/prototype/6575",
+    github: "https://github.com/enumura1/kasika-web-app",
     type: "Hackathon"
   },
   {
-    title: "OSS Component Library",
-    description: "オープンソースのUIコンポーネントライブラリ。週間1000+ダウンロード。アクセシビリティを重視した実装です。",
-    technologies: ["React", "TypeScript", "Storybook"],
-    link: "#",
-    github: "#",
+    title: "liquidui-animation",
+    description: "React用の液体のようなアニメーションを実装できるUIコンポーネントライブラリ。カスタマイズ可能なシェイプ、サイズ、アニメーション強度などのパラメータを提供し、短時間で揺れ動くアニメーションUIを実装可能。",
+    technologies: ["React", "TypeScript", "Animation", "npm package"],
+    link: "https://www.npmjs.com/package/@enumura/liquidui-animation",
+    github: "https://github.com/enumura1/liquidui-animation",
     type: "OSS"
   }
 ];
@@ -32,7 +31,7 @@ const projects: Project[] = [
 export function Projects() {
   return (
     <section className="py-20 px-4 max-w-4xl mx-auto">
-      <h2 className="text-4xl font-bold mb-8">Projects</h2>
+      <h2 className="text-4xl font-bold mb-8">💡Projects</h2>
       <div className="grid grid-cols-1 gap-8">
         {projects.map((project, index) => (
           <div 
@@ -40,23 +39,22 @@ export function Projects() {
             className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md dark:shadow-none transition-colors"
           >
             <div className="md:flex">
-              <div className="md:w-1/3 bg-gray-200 dark:bg-gray-700 h-48 md:h-auto">
-                {/* 画像の代わりに背景色付きのダミーエリア */}
-                <div className="w-full h-full flex items-center justify-center text-gray-500 dark:text-gray-400">
-                  [Project Image]
-                </div>
+            <div className={`md:w-1/3 h-48 md:h-auto flex items-center justify-center text-4xl font-bold ${
+              project.type === 'Hackathon' 
+                ? 'bg-gradient-to-br from-blue-400 to-blue-600 dark:from-blue-600 dark:to-blue-800 text-white'
+                : 'bg-gradient-to-br from-emerald-400 to-emerald-600 dark:from-emerald-600 dark:to-emerald-800 text-white'
+            }`}>
+              <div className="transform hover:scale-105 transition-transform duration-200 flex flex-col items-center">
+                {project.type}
+                <div className={`h-1 w-12 mt-2 rounded-full ${
+                  project.type === 'Hackathon'
+                    ? 'bg-white/30'
+                    : 'bg-white/30'
+                }`} />
               </div>
+            </div>
               <div className="p-6 md:w-2/3">
-                <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-xl font-semibold">{project.title}</h3>
-                  <span className={`px-3 py-1 rounded-full text-sm ${
-                    project.type === 'Hackathon' 
-                      ? 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200'
-                      : 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200'
-                  }`}>
-                    {project.type}
-                  </span>
-                </div>
+                <h3 className="text-xl font-semibold mb-4">{project.title}</h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-4">
                   {project.description}
                 </p>
@@ -80,7 +78,7 @@ export function Projects() {
                     rel="noopener noreferrer"
                   >
                     <Github size={20} className="mr-2" />
-                    View Source
+                    Repository
                   </a>
                   <a 
                     href={project.link}
@@ -89,7 +87,7 @@ export function Projects() {
                     rel="noopener noreferrer"
                   >
                     <ExternalLink size={20} className="mr-2" />
-                    Live Demo
+                    Overview
                   </a>
                 </div>
               </div>

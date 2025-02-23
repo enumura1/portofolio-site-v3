@@ -4,8 +4,8 @@ export function Hero() {
   return (
     <section className="h-screen flex flex-col justify-center items-center px-4">
       <div className="text-center">
-        <h1 className="text-6xl font-bold mb-4">enumura1</h1>
-        <p className="text-xl mb-8">
+        <h1 className="text-7xl font-bold mb-4">enumura1</h1>
+        <p className="text-3xl mb-8">
           <span className="text-gray-600 dark:text-gray-300">
             Web Frontend Developer & Indie Hacker
           </span>
@@ -15,7 +15,7 @@ export function Hero() {
             href="https://zenn.dev/enumura" 
             target="_blank"
             rel="noopener noreferrer"
-            className="text-base font-medium hover:text-blue-400 transition-colors"
+            className="text-xl font-medium hover:text-blue-400 transition-colors"
           >
             Zenn
           </a>
@@ -23,7 +23,7 @@ export function Hero() {
             href="https://qiita.com/enumura1" 
             target="_blank"
             rel="noopener noreferrer"
-            className="text-base font-medium hover:text-blue-400 transition-colors"
+            className="text-xl font-medium hover:text-blue-400 transition-colors"
           >
             Qiita
           </a>
@@ -31,9 +31,9 @@ export function Hero() {
             href="https://github.com/enumura1" 
             target="_blank"
             rel="noopener noreferrer"
-            className="text-base font-medium hover:text-blue-400 transition-colors"
+            className="text-xl font-medium hover:text-blue-400 transition-colors"
           >
-            Github
+            GitHub
           </a>
         </div>
       </div>
