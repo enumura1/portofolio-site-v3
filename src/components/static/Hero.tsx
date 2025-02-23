@@ -1,4 +1,4 @@
-import { Github, Share2, Mail, ChevronDown } from 'lucide-react'
+import { ChevronDown } from 'lucide-react'
 
 export function Hero() {
   return (
@@ -11,28 +11,6 @@ export function Hero() {
           </span>
         </p>
         <div className="flex space-x-6 justify-center items-center">
-          <a 
-            href="https://github.com/" 
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-blue-400 transition-colors"
-          >
-            <Github size={24} />
-          </a>
-          <a 
-            href="https://twitter.com/" 
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-blue-400 transition-colors"
-          >
-            <Share2 size={24} />
-          </a>
-          <a 
-            href="mailto:your@email.com"
-            className="hover:text-blue-400 transition-colors"
-          >
-            <Mail size={24} />
-          </a>
           <a 
             href="https://zenn.dev/enumura" 
             target="_blank"
@@ -50,12 +28,12 @@ export function Hero() {
             Qiita
           </a>
           <a 
-            href="https://qiita.com/enumura1" 
+            href="https://github.com/enumura1" 
             target="_blank"
             rel="noopener noreferrer"
             className="text-base font-medium hover:text-blue-400 transition-colors"
           >
-            hoge
+            Github
           </a>
         </div>
       </div>
