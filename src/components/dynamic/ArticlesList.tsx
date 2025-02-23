@@ -1,101 +1,53 @@
-'use client'
-
 import { ExternalLink } from 'lucide-react'
-import { useState, useEffect } from 'react'
+import { fetchQiitaArticles } from '@/utils/qiita';
 
-type Article = {
-  id: string;
-  title: string;
-  url: string;
-  publishedAt: string;
-  likes: number;
-  platform: 'Zenn' | 'Qiita';
-};
-
-async function getArticles(): Promise<Article[]> {
-  // 仮のデータを返します
-  return [
-    {
-      id: '1',
-      title: 'Next.jsで～～～',
-      url: '#',
-      publishedAt: '2024-02-10',
-      likes: 1,
-      platform: 'Zenn'
-    },
-    {
-      id: '2',
-      title: 'aaaa title',
-      url: '#',
-      publishedAt: '2024-01-25',
-      likes: 2,
-      platform: 'Qiita'
-    },
-    {
-      id: '3',
-      title: 'bbb title',
-      url: '#',
-      publishedAt: '2024-01-15',
-      likes: 6,
-      platform: 'Zenn'
-    }
-  ];
-}
-
-export function ArticlesList() {
-  const [articles, setArticles] = useState<Article[]>([])
-  const [showAll, setShowAll] = useState(false)
-
-  useEffect(() => {
-    async function fetchArticles() {
-      const data = await getArticles()
-      setArticles(data)
-    }
-    fetchArticles()
-  }, [])
-
-  const displayedArticles = showAll ? articles : articles.slice(0, 5)
+export async function ArticlesList() {
+  const articles = await fetchQiitaArticles();
 
   return (
-    <div className="space-y-6">
-      {displayedArticles.map((article) => (
-        <div 
-          key={article.id}
-          className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md dark:shadow-none transition-colors"
-        >
-          <div className="flex justify-between items-start">
-            <div>
-              <h3 className="text-xl font-semibold mb-2">
-                <a 
-                  href={article.url}
-                  target="_blank"
-                  rel="noopener noreferrer" 
-                  className="hover:text-blue-400 flex items-center"
-                >
+    <div>
+      <div className="space-y-4">
+        {articles.map((article) => (
+          <a 
+            key={article.id}
+            href={article.url}
+            target="_blank"
+            rel="noopener noreferrer" 
+            className="block bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md dark:shadow-none transition-all hover:translate-x-1 hover:bg-gray-50 dark:hover:bg-gray-700"
+          >
+            <div className="flex items-center justify-between gap-4">
+              <div className="flex-1 min-w-0">
+                <h3 className="text-lg font-medium text-gray-900 dark:text-gray-100 truncate">
                   {article.title}
-                  <ExternalLink size={16} className="ml-2" />
-                </a>
-              </h3>
-              <div className="text-gray-600 dark:text-gray-400">
-                <span>{article.platform}</span>
-                <span className="mx-2">•</span>
-                <span>{article.publishedAt}</span>
+                </h3>
+                <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+                  {new Date(article.created_at).toLocaleDateString('ja-JP', {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric'
+                  })}
+                </p>
               </div>
+              <ExternalLink 
+                size={20} 
+                className="flex-shrink-0 text-gray-400 dark:text-gray-500"
+              />
             </div>
-            <div className="text-gray-600 dark:text-gray-400">
-              ❤️ {article.likes}
-            </div>
-          </div>
-        </div>
-      ))}
-      {articles.length > 5 && (
-        <button 
-          onClick={() => setShowAll(!showAll)}
-          className="w-full py-3 text-blue-500 hover:text-blue-400 transition-colors"
+          </a>
+        ))}
+      </div>
+      
+      <div className="text-center mt-8">
+        <a
+          href="https://qiita.com/あなたのユーザー名"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center px-6 py-3 text-sm font-medium text-blue-500 hover:text-blue-400 transition-colors"
         >
-          {showAll ? 'Show Less' : 'Show More'}
-        </button>
-      )}
+          View More Articles
+          <ExternalLink size={16} className="ml-2" />
+        </a>
+      </div>
     </div>
   )
 }
