@@ -46,71 +46,71 @@ export function TerminalInterface() {
     
     // 各コマンドの処理
     switch (cleanCmd) {
-      case 'about':
-        output = 'Moving to about section...';
-        scrollToSection('about');
-        break;
-      case 'projects':
-        output = 'Loading projects...';
-        scrollToSection('projects');
-        break;
-      case 'skills':
-        output = 'Analyzing developer skills...';
-        scrollToSection('skills');
-        break;
-      case 'blog':
-        output = 'Opening blog entries...';
-        scrollToSection('blog');
-        break;
-      case 'contact':
-        output = 'Establishing connection...';
-        scrollToSection('contact');
-        break;
-      case 'clear':
-        setCommands([]);
-        return;
-      case 'help':
-        output = 'Available commands:\n - about: Navigate to About section\n - projects: View my projects\n - skills: Check my technical skills\n - blog: Read my blog posts\n - contact: Get in touch with me\n - clear: Clear the terminal\n - theme dark/light: Switch color theme\n - tech-stack: View web performance insights\n - cat resolutions: See my developer goals\n\nAlso try: whoami, ls, cat skills.txt';
-        break;
-      case 'whoami':
-        output = 'enumura1 - Web Frontend Developer & Indie Hacker';
-        break;
-      case 'ls':
-        output = 'about/  blog/  projects/  skills.txt  resolutions  tech-stack.md';
-        break;
-      case 'ls -a':
-      case 'ls -la':
-        output = '.  ..  about/  blog/  projects/  skills.txt  resolutions  tech-stack.md  .config';
-        break;
-      case 'ls projects':
-      case 'ls -la projects':
-        output = 'hackathon-project.md  open-source.md  portfolio.md';
-        break;
-      case 'cat skills.txt':
-        output = 'Frontend: React, TypeScript, JavaScript, Tailwind CSS\nBackend: Node.js, Python\nOther: Git, Docker, AWS, Blender';
-        break;
-      case 'cat resolutions':
-        output = '🎯 Annual Developer Goals 2025:\n\n1. Master React Server Components & streaming patterns\n2. Contribute to 3+ open-source projects\n3. Write a technical e-book on web performance\n4. Launch 2 side projects with focus on accessibility\n5. Improve TypeScript knowledge with advanced patterns\n6. Mentor junior developers through community events';
-        break;
-      case 'theme dark':
-        document.documentElement.classList.add('dark');
-        output = 'Switching to dark theme...';
-        break;
-      case 'theme light':
-        document.documentElement.classList.remove('dark');
-        output = 'Switching to light theme...';
-        break;
-      case 'tech-stack':
-        output = 'Navigating to Web Performance Insights...';
-        // 少し遅延させてナビゲーション
-        setTimeout(() => {
-          window.location.href = '/tech-stack';
-        }, 500);
-        break;
-      case 'sudo rm -rf /':
-        output = 'Nice try! 😉 But my portfolio has backup systems.';
-        break;
-      default:
+        case 'about':
+            output = 'Moving to about section...';
+            scrollToSection('about');
+            break;
+        case 'skills':
+            output = 'Analyzing developer skills...';
+            scrollToSection('skills');
+            break;
+        case 'projects':
+            output = 'Loading projects...';
+            scrollToSection('projects');
+            break;
+        case 'blog':
+            output = 'Opening blog entries...';
+            scrollToSection('blog');
+            break;
+        case 'contact':
+            output = 'Establishing connection...';
+            scrollToSection('contact');
+            break;
+        case 'clear':
+            setCommands([]);
+            return;
+        case 'help':
+            output = 'Available commands:\n - about: Navigate to About section\n - skills: Check my technical skills\n - projects: View my projects\n - blog: Read my blog posts\n - contact: Get in touch with me\n - clear: Clear the terminal\n - theme dark/light: Switch color theme\n - tech-stack: View web performance insights\n - cat resolutions: See my developer goals\n\nAlso try: whoami, ls, cat skills.txt';
+            break;
+        case 'whoami':
+            output = 'enumura1 - Web Frontend Developer & Indie Hacker';
+            break;
+        case 'ls':
+            output = 'about/  skills/  blog/  projects/  resolutions  tech-stack.md';
+            break;
+        case 'ls -a':
+        case 'ls -la':
+            output = '.  ..  about/  skills/  blog/  projects/  resolutions  tech-stack.md  .config';
+            break;
+        case 'ls projects':
+        case 'ls -la projects':
+            output = 'hackathon-project.md  open-source.md  portfolio.md';
+            break;
+        case 'cat skills.txt':
+            output = 'Frontend: React, TypeScript, JavaScript, Tailwind CSS\nBackend: Node.js, Python\nOther: Git, Docker, AWS, Blender';
+            break;
+        case 'cat resolutions':
+            output = '🎯 Annual Developer Goals 2025:\n\n1. Master React Server Components & streaming patterns\n2. Contribute to 3+ open-source projects\n3. Write a technical e-book on web performance\n4. Launch 2 side projects with focus on accessibility\n5. Improve TypeScript knowledge with advanced patterns\n6. Mentor junior developers through community events';
+            break;
+        case 'theme dark':
+            document.documentElement.classList.add('dark');
+            output = 'Switching to dark theme...';
+            break;
+        case 'theme light':
+            document.documentElement.classList.remove('dark');
+            output = 'Switching to light theme...';
+            break;
+        case 'tech-stack':
+            output = 'Navigating to Web Performance Insights...';
+            // 少し遅延させてナビゲーション
+            setTimeout(() => {
+            window.location.href = '/tech-stack';
+            }, 500);
+            break;
+        case 'sudo rm -rf /':
+            output = 'Nice try! 😉 But my portfolio has backup systems.';
+            break;
+        default:
         if (cleanCmd.startsWith('echo ')) {
           output = cleanCmd.substring(5);
         } else {
@@ -167,9 +167,7 @@ export function TerminalInterface() {
         <div 
           ref={terminalRef}
           className="bg-white dark:bg-gray-900 p-4 h-96 overflow-y-auto font-mono text-sm text-gray-700 dark:text-gray-300
-                     scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 
-                     scrollbar-track-transparent hover:scrollbar-thumb-gray-400 
-                     dark:hover:scrollbar-thumb-gray-500"
+                    scrollbar-none"
         >
           {/* コマンド履歴 */}
           {commands.map((item, index) => (
@@ -187,9 +185,11 @@ export function TerminalInterface() {
             <span className="text-green-500 dark:text-green-400 mr-2">$</span>
             <span>{input}</span>
             <span 
-              className={`ml-0.5 inline-block w-2 h-5 bg-gray-700 dark:bg-gray-300 ${
-                cursorVisible ? 'opacity-100' : 'opacity-0'
-              }`}
+              className={`ml-0.5 inline-block w-2 h-5
+                ${cursorVisible 
+                ? 'bg-gray-500 dark:bg-gray-400'
+                : 'opacity-0'
+                }`}
             ></span>
             <input
               ref={inputRef}
@@ -205,9 +205,9 @@ export function TerminalInterface() {
       </div>
       
       {/* 説明テキスト */}
-      <p className="mt-2 text-center text-lg text-gray-400 dark:text-gray-500">
-        Type &quot;help&quot; to see available commands. 
-      </p>
+        <p className="mt-2 text-center text-lg text-gray-400 dark:text-gray-500">
+          Type <span className="bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-blue-500 dark:text-blue-400 font-medium">help</span> to see available commands.
+        </p>
     </div>
   );
 }

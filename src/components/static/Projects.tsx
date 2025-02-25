@@ -11,8 +11,8 @@ type Project = {
 
 const projects: Project[] = [
   {
-    title: "カシカ - ビジネスチャットを図解で分かりやすく",
-    description: "ビジネスチャットでの説明を図解でサポートするAIアシスタント。300種類の図解テンプレートからRAGシステムを用いて最適な提案を行い、編集機能を提供するWebアプリケーション。2段階の検索プロセスによりコストを97%削減してみた。",
+    title: "Kashika - Making Business Chats More Understandable with Diagrams",
+    description: "An AI assistant that supports explanations in business chats with diagrams. Offers optimal suggestions from 300 diagram templates using a RAG system, and provides editing features in a web application. The two-stage search process successfully reduced costs by 97%.",
     technologies: ["React", "Vite", "TypeScript", "shadcn/ui", "AWS Lambda", "Python", "Amazon Bedrock", "scikit-learn", "Docker"],
     link: "https://protopedia.net/prototype/6575",
     github: "https://github.com/enumura1/kasika-web-app",
@@ -20,7 +20,7 @@ const projects: Project[] = [
   },
   {
     title: "liquidui-animation",
-    description: "React用の液体のようなアニメーションを実装できるUIコンポーネントライブラリ。カスタマイズ可能なシェイプ、サイズ、アニメーション強度などのパラメータを提供し、短時間で揺れ動くアニメーションUIを実装可能。",
+    description: "A UI component library for React that implements fluid-like animations. Provides customizable parameters including shapes, sizes, and animation intensity, enabling quick implementation of dynamic, flowing animation effects in UI.",
     technologies: ["React", "TypeScript", "Animation", "npm package"],
     link: "https://www.npmjs.com/package/@enumura/liquidui-animation",
     github: "https://github.com/enumura1/liquidui-animation",
