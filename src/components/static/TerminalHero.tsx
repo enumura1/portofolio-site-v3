@@ -12,7 +12,7 @@ export function TerminalHero() {
             Web Frontend Developer & Indie Hacker
           </span>
         </p>
-        <div className="flex space-x-6 justify-center md:justify-start items-center">
+        <div className="flex space-x-6 ml-1 justify-center md:justify-start items-center">
           <a 
             href="https://zenn.dev/enumura" 
             target="_blank"
