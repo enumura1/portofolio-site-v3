@@ -158,7 +158,7 @@ export function TerminalInterface() {
             <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
             <div className="w-3 h-3 bg-green-500 rounded-full"></div>
           </div>
-          <div className="w-full text-center text-xs text-gray-500 dark:text-gray-400">
+          <div className="w-full text-center text-xs text-gray-500 dark:text-gray-400 tracking-widest">
             enumura1@terminal
           </div>
         </div>
