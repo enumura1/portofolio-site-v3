@@ -8,8 +8,7 @@ export function TerminalInterface() {
   const [commands, setCommands] = useState<{command: string, output: string}[]>([
     { command: 'whoami', output: 'enumura1 - Web Frontend Developer & Indie Hacker' },
     { command: 'ls projects', output: 'hackathon-project.md  open-source.md  portfolio.md' },
-    { command: 'cat skills.txt', output: 'Frontend: React, TypeScript, Next.js, Tailwind CSS\nBackend: Node.js, Python\nOther: Git, Docker, AWS, Blender' },
-    { command: 'help', output: '利用可能なコマンド:\n - about: 自己紹介セクションへ\n - projects: プロジェクト一覧へ\n - skills: スキルセクションへ\n - blog: ブログセクションへ\n - contact: 連絡先へ' }
+    { command: 'cat skills.txt', output: 'Frontend: React, TypeScript, JavaScript \nBackend: Node.js, Python\nOther: Git, Docker, AWS, Blender' }
   ]);
   const terminalRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -48,33 +47,75 @@ export function TerminalInterface() {
     // 各コマンドの処理
     switch (cleanCmd) {
       case 'about':
-        output = '自己紹介セクションに移動します...';
+        output = 'Moving to about section...';
         scrollToSection('about');
         break;
       case 'projects':
-        output = 'プロジェクト一覧セクションに移動します...';
+        output = 'Loading projects...';
         scrollToSection('projects');
         break;
       case 'skills':
-        output = 'スキルセクションに移動します...';
+        output = 'Analyzing developer skills...';
         scrollToSection('skills');
         break;
       case 'blog':
-        output = 'ブログセクションに移動します...';
+        output = 'Opening blog entries...';
         scrollToSection('blog');
         break;
       case 'contact':
-        output = '連絡先セクションに移動します...';
+        output = 'Establishing connection...';
         scrollToSection('contact');
         break;
       case 'clear':
         setCommands([]);
         return;
       case 'help':
-        output = '利用可能なコマンド:\n - about: 自己紹介セクションへ\n - projects: プロジェクト一覧へ\n - skills: スキルセクションへ\n - blog: ブログセクションへ\n - contact: 連絡先へ\n - clear: 画面をクリア';
+        output = 'Available commands:\n - about: Navigate to About section\n - projects: View my projects\n - skills: Check my technical skills\n - blog: Read my blog posts\n - contact: Get in touch with me\n - clear: Clear the terminal\n - theme dark/light: Switch color theme\n - tech-stack: View web performance insights\n - cat resolutions: See my developer goals\n\nAlso try: whoami, ls, cat skills.txt';
+        break;
+      case 'whoami':
+        output = 'enumura1 - Web Frontend Developer & Indie Hacker';
+        break;
+      case 'ls':
+        output = 'about/  blog/  projects/  skills.txt  resolutions  tech-stack.md';
+        break;
+      case 'ls -a':
+      case 'ls -la':
+        output = '.  ..  about/  blog/  projects/  skills.txt  resolutions  tech-stack.md  .config';
+        break;
+      case 'ls projects':
+      case 'ls -la projects':
+        output = 'hackathon-project.md  open-source.md  portfolio.md';
+        break;
+      case 'cat skills.txt':
+        output = 'Frontend: React, TypeScript, JavaScript, Tailwind CSS\nBackend: Node.js, Python\nOther: Git, Docker, AWS, Blender';
+        break;
+      case 'cat resolutions':
+        output = '🎯 Annual Developer Goals 2025:\n\n1. Master React Server Components & streaming patterns\n2. Contribute to 3+ open-source projects\n3. Write a technical e-book on web performance\n4. Launch 2 side projects with focus on accessibility\n5. Improve TypeScript knowledge with advanced patterns\n6. Mentor junior developers through community events';
+        break;
+      case 'theme dark':
+        document.documentElement.classList.add('dark');
+        output = 'Switching to dark theme...';
+        break;
+      case 'theme light':
+        document.documentElement.classList.remove('dark');
+        output = 'Switching to light theme...';
+        break;
+      case 'tech-stack':
+        output = 'Navigating to Web Performance Insights...';
+        // 少し遅延させてナビゲーション
+        setTimeout(() => {
+          window.location.href = '/tech-stack';
+        }, 500);
+        break;
+      case 'sudo rm -rf /':
+        output = 'Nice try! 😉 But my portfolio has backup systems.';
         break;
       default:
-        output = `コマンドが見つかりません: ${cleanCmd}\n'help'を実行して利用可能なコマンドを確認してください`;
+        if (cleanCmd.startsWith('echo ')) {
+          output = cleanCmd.substring(5);
+        } else {
+          output = `Command not found: ${cleanCmd}\nType 'help' for available commands`;
+        }
     }
 
     // コマンド履歴に追加
@@ -111,7 +152,7 @@ export function TerminalInterface() {
       {/* ターミナルウィンドウ */}
       <div className="rounded-lg overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700 transform transition-all duration-300 hover:shadow-2xl">
         {/* ターミナルヘッダー */}
-        <div className="flex items-center px-4 py-2 bg-gray-100 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+        <div className="flex items-center px-4 py-2 relative bg-gray-100 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
           <div className="absolute left-4 flex space-x-2">
             <div className="w-3 h-3 bg-red-500 rounded-full"></div>
             <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
@@ -122,10 +163,13 @@ export function TerminalInterface() {
           </div>
         </div>
         
-        {/* ターミナルコンテンツ */}
+        {/* ターミナルコンテンツ - カスタムスクロールバー */}
         <div 
           ref={terminalRef}
-          className="bg-white dark:bg-gray-900 p-4 h-96 overflow-y-auto font-mono text-sm text-gray-700 dark:text-gray-300"
+          className="bg-white dark:bg-gray-900 p-4 h-96 overflow-y-auto font-mono text-sm text-gray-700 dark:text-gray-300
+                     scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 
+                     scrollbar-track-transparent hover:scrollbar-thumb-gray-400 
+                     dark:hover:scrollbar-thumb-gray-500"
         >
           {/* コマンド履歴 */}
           {commands.map((item, index) => (
@@ -161,8 +205,8 @@ export function TerminalInterface() {
       </div>
       
       {/* 説明テキスト */}
-      <p className="mt-2 text-center text-sm text-gray-500 dark:text-gray-400">
-        クリックしてターミナルを操作してみてください。<code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">help</code> でコマンド一覧が表示されます。
+      <p className="mt-2 text-center text-lg text-gray-400 dark:text-gray-500">
+        Type &quot;help&quot; to see available commands. 
       </p>
     </div>
   );

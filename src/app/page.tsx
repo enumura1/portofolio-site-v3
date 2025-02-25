@@ -1,6 +1,6 @@
 // static
 import { Header } from '@/components/static/Header'
-import { Hero } from '@/components/static/Hero'
+import { TerminalHero } from '@/components/static/TerminalHero'
 import { About } from '@/components/static/About'
 import { Timeline } from '@/components/static/Timeline'
 import { Certifications } from '@/components/static/Certifications'
@@ -16,7 +16,7 @@ export default function Home() {
     <>
       <Header />
       <main className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-200">
-        <Hero />
+        <TerminalHero />
         <About />
         <Timeline />
         <Certifications />

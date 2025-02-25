@@ -29,7 +29,7 @@ const timeline: TimelineItem[] = [
 
 export function Timeline() {
   return (
-    <section className="py-20 px-4 max-w-4xl mx-auto">
+    <section className="py-20 px-4 max-w-4xl mx-auto" id="skills">
       <h2 className="text-4xl font-bold mb-8">🛠️Dev Experience</h2>
       <div className="relative">
         {/* 縦線を丸の中央に配置 */}

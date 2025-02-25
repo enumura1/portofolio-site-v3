@@ -30,7 +30,7 @@ const projects: Project[] = [
 
 export function Projects() {
   return (
-    <section className="py-20 px-4 max-w-4xl mx-auto">
+    <section className="py-20 px-4 max-w-4xl mx-auto" id="projects">
       <h2 className="text-4xl font-bold mb-8">💡Projects</h2>
       <div className="grid grid-cols-1 gap-8">
         {projects.map((project, index) => (
