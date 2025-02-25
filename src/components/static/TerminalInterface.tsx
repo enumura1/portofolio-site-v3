@@ -167,9 +167,7 @@ export function TerminalInterface() {
         <div 
           ref={terminalRef}
           className="bg-white dark:bg-gray-900 p-4 h-96 overflow-y-auto font-mono text-sm text-gray-700 dark:text-gray-300
-                     scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 
-                     scrollbar-track-transparent hover:scrollbar-thumb-gray-400 
-                     dark:hover:scrollbar-thumb-gray-500"
+                    scrollbar-none"
         >
           {/* コマンド履歴 */}
           {commands.map((item, index) => (
@@ -187,9 +185,11 @@ export function TerminalInterface() {
             <span className="text-green-500 dark:text-green-400 mr-2">$</span>
             <span>{input}</span>
             <span 
-              className={`ml-0.5 inline-block w-2 h-5 bg-gray-700 dark:bg-gray-300 ${
-                cursorVisible ? 'opacity-100' : 'opacity-0'
-              }`}
+              className={`ml-0.5 inline-block w-2 h-5
+                ${cursorVisible 
+                ? 'bg-gray-500 dark:bg-gray-400'
+                : 'opacity-0'
+                }`}
             ></span>
             <input
               ref={inputRef}
