@@ -15,7 +15,7 @@ export function Hero() {
             href="https://zenn.dev/enumura" 
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xl font-medium hover:text-blue-400 transition-colors"
+            className="text-2xl font-medium hover:text-blue-400 transition-colors"
           >
             Zenn
           </a>
@@ -23,7 +23,7 @@ export function Hero() {
             href="https://qiita.com/enumura1" 
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xl font-medium hover:text-blue-400 transition-colors"
+            className="text-2xl font-medium hover:text-blue-400 transition-colors"
           >
             Qiita
           </a>
@@ -31,7 +31,7 @@ export function Hero() {
             href="https://github.com/enumura1" 
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xl font-medium hover:text-blue-400 transition-colors"
+            className="text-2xl font-medium hover:text-blue-400 transition-colors"
           >
             GitHub
           </a>

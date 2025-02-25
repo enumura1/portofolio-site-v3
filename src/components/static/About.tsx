@@ -6,7 +6,7 @@ type Skill = {
   const skills: Skill[] = [
     {
       name: "Frontend",
-      items: ["JavaScript", "TypeScript", "Three.js", "React", "Tailwind CSS"]
+      items: ["JavaScript", "TypeScript", "Three.js", "React"]
     },
     {
       name: "Backend",
