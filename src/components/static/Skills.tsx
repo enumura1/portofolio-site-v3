@@ -10,6 +10,8 @@ type Skill = {
     {
       name: "Frontend",
       items: [
+        { name: "HTML", icon: "🌐" },
+        { name: "CSS", icon: "🎨" },
         { name: "JavaScript", icon: "⚡" },
         { name: "TypeScript", icon: "🔷" },
         { name: "React", icon: "⚛️" },
@@ -19,8 +21,7 @@ type Skill = {
     {
       name: "Backend",
       items: [
-        { name: "Node.js", icon: "🟢" },
-        { name: "Python", icon: "🐍" }
+        { name: "Node.js", icon: "🟢" }
       ]
     },
     {
