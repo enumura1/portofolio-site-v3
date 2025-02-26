@@ -19,8 +19,7 @@ type Skill = {
     {
       name: "Backend",
       items: [
-        { name: "Node.js", icon: "🟢" },
-        { name: "Python", icon: "🐍" }
+        { name: "Node.js", icon: "🟢" }
       ]
     },
     {
