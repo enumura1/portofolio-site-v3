@@ -13,6 +13,13 @@ export function TerminalInterface() {
   const terminalRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
+  // 利用可能なコマンドリスト (タブ補完のため)
+  const availableCommands = [
+    'about', 'skills', 'projects', 'blog', 'contact', 'clear', 'help', 
+    'whoami', 'ls', 'ls -a', 'ls -la', 'ls projects', 'ls -la projects',
+    'cat skills.txt', 'cat resolutions', 'theme dark', 'theme light', 'tech-stack', 'echo '
+  ];
+
   // カーソル点滅のエフェクト
   useEffect(() => {
     const interval = setInterval(() => {
@@ -38,6 +45,68 @@ export function TerminalInterface() {
       }
     };
   }, []);
+
+  // タブ補完機能
+  const handleTabCompletion = () => {
+    if (!input) return;
+
+    // 入力中のコマンド
+    const currentInput = input.trim().toLowerCase();
+    
+    // catコマンドの特別処理
+    if (currentInput.startsWith('cat ')) {
+      const partialFile = currentInput.substring(4);
+      const possibleFiles = ['skills.txt', 'resolutions'];
+      const matchingFiles = possibleFiles.filter(file => file.startsWith(partialFile));
+      
+      if (matchingFiles.length === 1) {
+        setInput(`cat ${matchingFiles[0]}`);
+      }
+      return;
+    }
+    
+    // lsコマンドの特別処理
+    if (currentInput === 'ls ') {
+      setInput('ls projects');
+      return;
+    }
+    
+    // themeコマンドの特別処理
+    if (currentInput === 'theme ') {
+      setInput('theme dark');
+      return;
+    }
+
+    // 一般的なコマンド補完
+    const matchingCommands = availableCommands.filter(cmd => cmd.startsWith(currentInput));
+    
+    if (matchingCommands.length === 1) {
+      setInput(matchingCommands[0]);
+    } else if (matchingCommands.length > 1) {
+      // 共通の接頭辞を見つける
+      let commonPrefix = currentInput;
+      let position = currentInput.length;
+      
+      // 共通の接頭辞の最大長を見つける
+      while (matchingCommands.every(cmd => cmd.length > position && 
+                                    cmd.charAt(position) === matchingCommands[0].charAt(position))) {
+        commonPrefix += matchingCommands[0].charAt(position);
+        position++;
+      }
+      
+      // 共通接頭辞があれば更新
+      if (commonPrefix.length > currentInput.length) {
+        setInput(commonPrefix);
+      } else {
+        // 一致するコマンドリストを表示
+        const options = matchingCommands.join('  ');
+        setCommands(prev => [...prev, { 
+          command: currentInput, 
+          output: `Possible commands:\n${options}` 
+        }]);
+      }
+    }
+  };
 
   // コマンド実行関数
   const executeCommand = (cmd: string) => {
@@ -105,7 +174,7 @@ export function TerminalInterface() {
             // 少し遅延させてナビゲーション
             setTimeout(() => {
             window.location.href = '/tech-stack';
-            }, 500);
+            }, 200);
             break;
         case 'sudo rm -rf /':
             output = 'Nice try! 😉 But my portfolio has backup systems.';
@@ -144,6 +213,9 @@ export function TerminalInterface() {
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       executeCommand(input);
+    } else if (e.key === 'Tab') {
+      e.preventDefault(); // ブラウザのデフォルトのタブ動作を防止
+      handleTabCompletion();
     }
   };
 
@@ -206,7 +278,7 @@ export function TerminalInterface() {
       
       {/* 説明テキスト */}
         <p className="mt-2 text-center text-lg text-gray-400 dark:text-gray-500">
-          Type <span className="bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-blue-500 dark:text-blue-400 font-medium">help</span> to see available commands.
+          Type <span className="bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-blue-500 dark:text-blue-400 font-medium">help</span> to see available commands. <span className="text-sm ml-1">(Tab for completion)</span>
         </p>
     </div>
   );
