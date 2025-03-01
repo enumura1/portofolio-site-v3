@@ -3,7 +3,7 @@ import { TerminalInterface } from './TerminalInterface'
 
 export function TerminalHero() {
   return (
-    <section className="min-h-screen flex flex-col md:flex-row items-center justify-center px-4 md:px-12 lg:px-20 gap-8 md:gap-16 pt-16 md:pt-0">
+    <section className="min-h-screen flex flex-col md:flex-row items-center justify-center px-4 md:px-12 lg:px-20 gap-8 md:gap-16 pt-16 md:pt-0 relative">
       {/* 左側：my info */}
       <div className="w-full md:w-5/12 text-center md:text-left md:pl-4 lg:pl-8">
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-3 md:mb-4">enumura1</h1>
@@ -45,9 +45,14 @@ export function TerminalHero() {
         <TerminalInterface />
       </div>
 
-      {/* スクロールヒント - モバイルでは少し上に配置 */}
-      <div className="absolute bottom-4 md:bottom-8 animate-bounce">
+      {/* スクロールヒント: desktop */}
+      <div className="absolute md:bottom-8 animate-bounce hidden md:block">
         <ChevronDown size={30} className="md:w-12 md:h-12" />
+      </div>
+      
+      {/* スクロールヒント: mobile */}
+      <div className="w-full flex justify-center mt-6 md:hidden animate-bounce">
+        <ChevronDown size={24} />
       </div>
     </section>
   )
