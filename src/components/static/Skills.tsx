@@ -12,7 +12,7 @@ type Skill = {
       items: [
         { name: "HTML", icon: "🌐" },
         { name: "CSS", icon: "🎨" },
-        { name: "JavaScript", icon: "⚡" },
+        { name: "JavaScript", icon: "🔶" },
         { name: "TypeScript", icon: "🔷" },
         { name: "React", icon: "⚛️" },
         { name: "Vite", icon: "⚡" }
