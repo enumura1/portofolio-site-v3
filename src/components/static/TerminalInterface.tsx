@@ -8,7 +8,7 @@ export function TerminalInterface() {
   const [commands, setCommands] = useState<{command: string, output: string}[]>([
     { command: 'whoami', output: 'enumura1 - Web Frontend Developer & Indie Hacker' },
     { command: 'ls projects', output: 'hackathon-project.md  open-source.md  portfolio.md' },
-    { command: 'cat skills.txt', output: 'Frontend: React, TypeScript, JavaScript \nBackend: Node.js \nOther: Git, Docker, AWS, Blender' }
+    { command: 'cat skills.txt', output: 'Frontend: HTML, CSS, JavaScript, TypeScript, React \nBackend: Node.js \nOther: Git, Docker, AWS, Blender' }
   ]);
   const terminalRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -156,7 +156,7 @@ export function TerminalInterface() {
             output = 'hackathon-project.md  open-source.md  portfolio.md';
             break;
         case 'cat skills.txt':
-            output = 'Frontend: React, TypeScript, JavaScript, Tailwind CSS\nBackend: Node.js \nOther: Git, Docker, AWS, Blender';
+            output = 'Frontend: HTML, CSS, JavaScript, TypeScript, React\nBackend: Node.js \nOther: Git, Docker, AWS, Blender';
             break;
         case 'cat resolutions':
             output = '🎯 Annual Developer Goals 2025:\n\n1. Master React Server Components & streaming patterns\n2. Contribute to 3+ open-source projects\n3. Write a technical e-book on web performance\n4. Launch 2 side projects with focus on accessibility\n5. Improve TypeScript knowledge with advanced patterns\n6. Mentor junior developers through community events';
