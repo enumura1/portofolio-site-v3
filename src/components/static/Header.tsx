@@ -40,6 +40,7 @@ export function Header() {
                     src="/images/profile.webp" 
                     alt="Profile" 
                     fill
+                    priority
                     className="object-cover"
                   />
                 </div>
