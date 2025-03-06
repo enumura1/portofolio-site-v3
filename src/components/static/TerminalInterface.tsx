@@ -17,7 +17,7 @@ export function TerminalInterface() {
   const availableCommands = [
     'about', 'skills', 'projects', 'blog', 'contact', 'clear', 'help', 
     'whoami', 'ls', 'ls -a', 'ls -la', 'ls projects', 'ls -la projects',
-    'cat skills.txt', 'cat resolutions', 'theme dark', 'theme light', 'tech-stack', 'echo '
+    'cat skills.txt', 'cat resolutions', 'theme dark', 'theme light', 'cat tech-stack', 'echo '
   ];
 
   // カーソル点滅のエフェクト
@@ -49,18 +49,25 @@ export function TerminalInterface() {
   // タブ補完機能
   const handleTabCompletion = () => {
     if (!input) return;
-
+  
     // 入力中のコマンド
     const currentInput = input.trim().toLowerCase();
     
     // catコマンドの特別処理
     if (currentInput.startsWith('cat ')) {
       const partialFile = currentInput.substring(4);
-      const possibleFiles = ['skills.txt', 'resolutions'];
+      const possibleFiles = ['skills.txt', 'resolutions', 'tech-stack'];
       const matchingFiles = possibleFiles.filter(file => file.startsWith(partialFile));
       
       if (matchingFiles.length === 1) {
         setInput(`cat ${matchingFiles[0]}`);
+      } else if (matchingFiles.length > 0) {
+        // 複数のマッチがある場合、オプションを表示
+        const options = matchingFiles.map(f => `cat ${f}`).join('  ');
+        setCommands(prev => [...prev, { 
+          command: currentInput, 
+          output: `Possible commands:\n${options}` 
+        }]);
       }
       return;
     }
@@ -76,7 +83,7 @@ export function TerminalInterface() {
       setInput('theme dark');
       return;
     }
-
+  
     // 一般的なコマンド補完
     const matchingCommands = availableCommands.filter(cmd => cmd.startsWith(currentInput));
     
@@ -89,7 +96,7 @@ export function TerminalInterface() {
       
       // 共通の接頭辞の最大長を見つける
       while (matchingCommands.every(cmd => cmd.length > position && 
-                                    cmd.charAt(position) === matchingCommands[0].charAt(position))) {
+                                  cmd.charAt(position) === matchingCommands[0].charAt(position))) {
         commonPrefix += matchingCommands[0].charAt(position);
         position++;
       }
@@ -107,7 +114,7 @@ export function TerminalInterface() {
       }
     }
   };
-
+  
   // コマンド実行関数
   const executeCommand = (cmd: string) => {
     const cleanCmd = cmd.trim().toLowerCase();
@@ -139,7 +146,7 @@ export function TerminalInterface() {
             setCommands([]);
             return;
         case 'help':
-            output = 'Available commands:\n - about: Navigate to About section\n - skills: Check my technical skills\n - projects: View my projects\n - blog: Read my blog posts\n - contact: Get in touch with me\n - clear: Clear the terminal\n - theme dark/light: Switch color theme\n - tech-stack: View web performance insights\n - cat resolutions: See my developer goals\n\nAlso try: whoami, ls, cat skills.txt';
+            output = 'Available commands:\n - about: Navigate to About section\n - skills: Check my technical skills\n - projects: View my projects\n - blog: Read my blog posts\n - contact: Get in touch with me\n - clear: Clear the terminal\n - theme dark/light: Switch color theme\n - cat tech-stack: View web performance insights\n - cat resolutions: See my developer goals\n\nAlso try: whoami, ls, cat skills.txt';
             break;
         case 'whoami':
             output = 'enumura1 - Web Frontend Developer & Indie Hacker';
@@ -159,7 +166,10 @@ export function TerminalInterface() {
             output = 'Frontend: HTML, CSS, JavaScript, TypeScript, React\nBackend: Node.js \nOther: Git, Docker, AWS, Blender';
             break;
         case 'cat resolutions':
-            output = '🎯 Annual Developer Goals 2025:\n\n1. Master React Server Components & streaming patterns\n2. Contribute to 3+ open-source projects\n3. Write a technical e-book on web performance\n4. Launch 2 side projects with focus on accessibility\n5. Improve TypeScript knowledge with advanced patterns\n6. Mentor junior developers through community events';
+            output = 'Navigating to Developer Resolutions page...';
+            setTimeout(() => {
+              window.location.href = '/resolutions';
+            }, 200);
             break;
         case 'theme dark':
             document.documentElement.classList.add('dark');
@@ -169,9 +179,8 @@ export function TerminalInterface() {
             document.documentElement.classList.remove('dark');
             output = 'Switching to light theme...';
             break;
-        case 'tech-stack':
+        case 'cat tech-stack':
             output = 'Navigating to Web Performance Insights...';
-            // 少し遅延させてナビゲーション
             setTimeout(() => {
             window.location.href = '/tech-stack';
             }, 200);
