@@ -114,7 +114,7 @@ export function TerminalInterface() {
       }
     }
   };
-  
+
   // コマンド実行関数
   const executeCommand = (cmd: string) => {
     const cleanCmd = cmd.trim().toLowerCase();
@@ -146,7 +146,7 @@ export function TerminalInterface() {
             setCommands([]);
             return;
         case 'help':
-            output = 'Available commands:\n - about: Navigate to About section\n - skills: Check my technical skills\n - projects: View my projects\n - blog: Read my blog posts\n - contact: Get in touch with me\n - clear: Clear the terminal\n - theme dark/light: Switch color theme\n - cat tech-stack: View web performance insights\n - cat resolutions: See my developer goals\n\nAlso try: whoami, ls, cat skills.txt';
+            output = 'Available commands:\n - about: Navigate to About section\n - skills: Check my technical skills\n - projects: View my projects\n - blog: Read my blog posts\n - contact: Get in touch with me\n - clear: Clear the terminal\n - theme dark/light: Switch color theme\n - cat tech-stack: View web performance insights\n - cat resolutions: See my 2025 developer goals\n\nAlso try: whoami, ls, cat skills.txt';
             break;
         case 'whoami':
             output = 'enumura1 - Web Frontend Developer & Indie Hacker';
