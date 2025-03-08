@@ -4,7 +4,7 @@ export function ArticlesLoading() {
       {[...Array(5)].map((_, i) => (
         <div 
           key={i}
-          className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md dark:shadow-none animate-pulse"
+          className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-sm dark:shadow-none border border-gray-200 dark:border-gray-700 animate-pulse"
         >
           <div className="flex justify-between items-start">
             <div className="w-full">

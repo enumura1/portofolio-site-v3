@@ -36,7 +36,8 @@ export function Projects() {
         {projects.map((project, index) => (
           <div 
             key={index} 
-            className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md dark:shadow-none transition-colors"
+            className="bg-gray-50 dark:bg-gray-800 rounded-lg overflow-hidden shadow-sm dark:shadow-none border border-gray-200 dark:border-gray-700
+                     transition-all duration-300 hover:border-blue-200 dark:hover:border-blue-700 hover:shadow-md"
           >
             <div className="md:flex">
             <div className={`md:w-1/3 h-48 md:h-auto flex items-center justify-center text-4xl font-bold ${
@@ -63,7 +64,7 @@ export function Projects() {
                     {project.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-2 py-1 rounded text-sm bg-gray-100 dark:bg-gray-700"
+                        className="px-2 py-1 rounded text-sm bg-white dark:bg-gray-700 border border-gray-100 dark:border-gray-600"
                       >
                         {tech}
                       </span>

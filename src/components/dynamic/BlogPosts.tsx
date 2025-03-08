@@ -46,9 +46,9 @@ export function BlogPosts() {
             rel="noopener noreferrer"
             className="block group"
           >
-            <article className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm dark:shadow-none 
+            <article className="bg-gray-50 dark:bg-gray-800 rounded-xl p-6 shadow-sm dark:shadow-none border border-gray-200 dark:border-gray-700
               transition-all duration-300 
-              hover:shadow-md hover:translate-x-1 
+              hover:shadow-md hover:translate-x-1 hover:border-blue-200 dark:hover:border-blue-700
               dark:hover:bg-gray-700"
             >
               <div className="flex flex-col gap-4">
