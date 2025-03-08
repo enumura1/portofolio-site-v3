@@ -3,7 +3,7 @@ import { fetchQiitaArticles } from '@/utils/qiita'
 
 export async function ArticlesList() {
   try {
-    const articles = await fetchQiitaArticles()
+    const articles = await fetchQiitaArticles();
 
     if (!articles || articles.length === 0) {
       return (
@@ -22,7 +22,8 @@ export async function ArticlesList() {
               href={article.url}
               target="_blank"
               rel="noopener noreferrer" 
-              className="block bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md dark:shadow-none transition-all hover:translate-x-1 hover:bg-gray-50 dark:hover:bg-gray-700"
+              className="block bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-sm dark:shadow-none border border-gray-200 dark:border-gray-700
+                      transition-all hover:translate-x-1 hover:bg-gray-100 dark:hover:bg-gray-700 hover:shadow-md hover:border-blue-200 dark:hover:border-blue-700"
             >
               <div className="flex items-center justify-between gap-4">
                 <div className="flex-1 min-w-0">

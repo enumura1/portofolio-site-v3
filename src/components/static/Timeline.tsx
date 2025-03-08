@@ -41,7 +41,8 @@ export function Timeline() {
             <div className="absolute left-0 top-1.5 w-4 h-4 rounded-full bg-blue-500 transform -translate-x-1/2"></div>
             
             {/* カードコンテンツ */}
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md dark:shadow-none transition-colors">
+            <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-sm dark:shadow-none border border-gray-200 dark:border-gray-700
+                          transition-all duration-300 hover:border-blue-200 dark:hover:border-blue-700 hover:shadow-md">
               <div className="text-lg text-blue-500 font-bold mb-3">{item.year}</div>
               <h3 className="text-xl font-bold mb-2">{item.topic}</h3>
               <p className="text-gray-600 dark:text-gray-300">
