@@ -23,6 +23,14 @@ export function Header() {
     return () => observer.disconnect()
   }, [])
 
+  // ページトップにスクロールする関数
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }
+
   return (
     <>
       <div ref={observerRef} className="h-[1px] absolute top-0" />
@@ -32,7 +40,11 @@ export function Header() {
             <div className={`flex items-center justify-between px-2 sm:px-3 md:px-6 transition-all duration-300 ${
               isScrolled ? 'h-8 sm:h-10 md:h-14' : 'h-10 sm:h-12 md:h-20'
             }`}>
-              <div className="flex items-center space-x-2 md:space-x-5">
+              <div 
+                className="flex items-center space-x-2 md:space-x-5 cursor-pointer" 
+                onClick={scrollToTop}
+                title="Back to top"
+              >
                 <div className={`relative overflow-hidden rounded-full border-2 border-gray-200/50 dark:border-white/30 shadow-md hover:scale-105 transition-all duration-300 ${
                   isScrolled ? 'w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8' : 'w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10'
                 }`}>
