@@ -1,22 +1,27 @@
+import { ExternalLink } from 'lucide-react';
+
 type Certification = {
   title: string;
   date: string;
   issuer: string;
   icon: string;
+  link: string;
 };
 
 const certifications: Certification[] = [
   {
     title: "AWS Solutions Architect Associate",
-    date: "2024/10",
+    date: "2024/10 ~",
     issuer: "Amazon Web Services",
-    icon: "✅"
+    icon: "✅",
+    link: "https://aws.amazon.com/certification/certified-solutions-architect-associate/"
   },
   {
     title: "AWS Solutions Architect Professional",
-    date: "2025/3",
+    date: "2025/3 ~",
     issuer: "Amazon Web Services",
-    icon: "✅"
+    icon: "✅",
+    link: "https://aws.amazon.com/certification/certified-solutions-architect-professional/"
   }
 ];
 
@@ -33,12 +38,25 @@ export function Certifications() {
           >
             <div className="flex items-start">
               <div className="text-3xl mr-4">{cert.icon}</div>
-              <div>
+              <div className="w-full">
                 <h3 className="text-xl font-semibold mb-2">{cert.title}</h3>
-                <div className="text-gray-600 dark:text-gray-400">
+                <div className="text-gray-600 dark:text-gray-400 mb-4">
                   <div>{cert.issuer}</div>
                   <div>{cert.date}</div>
                 </div>
+                
+                <a 
+                  href={cert.link} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-blue-500 hover:text-blue-400 transition-all group"
+                >
+                  <span className="mr-1">View certification details</span>
+                  <ExternalLink 
+                    size={14} 
+                    className="transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" 
+                  />
+                </a>
               </div>
             </div>
           </div>
