@@ -6,8 +6,12 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Portfolio Site',
-  description: 'My professional portfolio',
+  title: 'enumura portfolio site',
+  description: 'My portfolio',
+  icons: {
+    icon: '/images/profile.webp',
+    apple: '/images/profile.webp',
+  },
 }
 
 export default function RootLayout({
