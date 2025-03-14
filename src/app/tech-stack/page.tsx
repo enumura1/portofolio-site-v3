@@ -1,8 +1,9 @@
 import Link from 'next/link'
+import { ExternalLink } from 'lucide-react'
 
 export const metadata = {
-  title: 'Web Performance Insights | enumura1',
-  description: 'Frontend performance optimization techniques and strategies used in this portfolio',
+  title: 'Tech Stack | enumura1',
+  description: 'Modern web technologies used in this portfolio',
 }
 
 export default function TechStack() {
@@ -24,194 +25,133 @@ export default function TechStack() {
 
         <section className="mb-16">
           <h2 className="text-2xl md:text-3xl font-bold mb-8 pb-2 border-b border-gray-200 dark:border-gray-700">
+            Technology Stack
+          </h2>
+          
+          <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700 transition-all hover:border-blue-200 dark:hover:border-blue-700 hover:shadow-md">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700 transition-all hover:border-blue-200 dark:hover:border-blue-700 hover:shadow-sm">
+                <h4 className="font-medium mb-2">Framework</h4>
+                <p className="text-gray-600 dark:text-gray-300">Next.js</p>
+              </div>
+              
+              <div className="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700 transition-all hover:border-blue-200 dark:hover:border-blue-700 hover:shadow-sm">
+                <h4 className="font-medium mb-2">UI</h4>
+                <p className="text-gray-600 dark:text-gray-300">Tailwind CSS</p>
+              </div>
+              
+              <div className="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700 transition-all hover:border-blue-200 dark:hover:border-blue-700 hover:shadow-sm">
+                <h4 className="font-medium mb-2">Runtime</h4>
+                <p className="text-gray-600 dark:text-gray-300">React</p>
+              </div>
+              
+              <div className="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700 transition-all hover:border-blue-200 dark:hover:border-blue-700 hover:shadow-sm">
+                <h4 className="font-medium mb-2">Language</h4>
+                <p className="text-gray-600 dark:text-gray-300">TypeScript</p>
+              </div>
+              
+              <div className="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700 transition-all hover:border-blue-200 dark:hover:border-blue-700 hover:shadow-sm">
+                <h4 className="font-medium mb-2">Utilities</h4>
+                <p className="text-gray-600 dark:text-gray-300">clsx / tailwind-merge</p>
+              </div>
+              
+              <div className="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700 transition-all hover:border-blue-200 dark:hover:border-blue-700 hover:shadow-sm">
+                <h4 className="font-medium mb-2">Linting</h4>
+                <p className="text-gray-600 dark:text-gray-300">ESLint</p>
+              </div>
+              
+              <div className="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700 transition-all hover:border-blue-200 dark:hover:border-blue-700 hover:shadow-sm">
+                <h4 className="font-medium mb-2">Development</h4>
+                <p className="text-gray-600 dark:text-gray-300">Turbopack</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="mb-16">
+          <h2 className="text-2xl md:text-3xl font-bold mb-8 pb-2 border-b border-gray-200 dark:border-gray-700">
             Core Technologies
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+            <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700 transition-all hover:border-blue-200 dark:hover:border-blue-700 hover:shadow-md">
               <h3 className="text-xl font-semibold mb-3">Next.js 15</h3>
               <p className="text-gray-600 dark:text-gray-300 mb-4">
-                The foundation of this portfolio, providing React Server Components, 
-                automatic code-splitting, and optimized rendering.
+                Using Next.js 15 (canary) with experimental Partial Prerendering enabled for optimal performance.
               </p>
-              <ul className="space-y-2 text-gray-600 dark:text-gray-300">
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span>App Router with Parallel Routes</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span>Server Components for reduced client JS</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span>Built-in image optimization</span>
-                </li>
-              </ul>
+              <div className="flex mt-4">
+                <a 
+                  href="https://nextjs.org/docs/app/building-your-application/rendering/partial-prerendering" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-blue-500 hover:text-blue-600 inline-flex items-center"
+                >
+                  Learn about PPR <ExternalLink size={14} className="ml-1" />
+                </a>
+              </div>
             </div>
 
-            <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-3">React 19</h3>
+            <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700 transition-all hover:border-blue-200 dark:hover:border-blue-700 hover:shadow-md">
+              <h3 className="text-xl font-semibold mb-3">Turbopack</h3>
               <p className="text-gray-600 dark:text-gray-300 mb-4">
-                Latest React version leveraging advanced rendering patterns
-                and optimized component architecture.
+                Using Turbopack for significantly faster development experience and incremental compilation.
               </p>
-              <ul className="space-y-2 text-gray-600 dark:text-gray-300">
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span>Offscreen prerendering</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span>Fine-grained reactivity</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span>Reduced re-renders with memoization</span>
-                </li>
-              </ul>
+              <div className="flex mt-4">
+                <a 
+                  href="https://turbo.build/pack" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-blue-500 hover:text-blue-600 inline-flex items-center"
+                >
+                  Turbopack docs <ExternalLink size={14} className="ml-1" />
+                </a>
+              </div>
             </div>
           </div>
         </section>
 
         <section className="mb-16">
           <h2 className="text-2xl md:text-3xl font-bold mb-8 pb-2 border-b border-gray-200 dark:border-gray-700">
-            Performance Optimizations
+            Performance Approach
           </h2>
           
-          <div className="space-y-8">
-            <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-3">Partial Prerendering (PPR)</h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                Leveraging Next.js&quots Partial Prerendering to deliver instant static content with dynamic islands. 
-                This allows the page shell to be served immediately from the edge, while dynamic 
-                components load in parallel, drastically improving both Core Web Vitals metrics and 
-                perceived performance.
-              </p>
-            </div>
-            
-            <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-3">Image Optimization</h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                All images are automatically optimized using Next.js Image component with several key optimizations:
-              </p>
-              <ul className="mt-3 space-y-2 text-gray-600 dark:text-gray-300">
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span>WebP/AVIF format conversion for smaller file sizes</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span>Responsive sizes with srcset generation</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span>Lazy loading with proper LCP prioritization</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span>Blur placeholder for improved UX during loading</span>
-                </li>
-              </ul>
-            </div>
-            
-            <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-3">CSS Optimization with Tailwind</h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                Tailwind CSS with its JIT compiler delivers multiple performance benefits:
-              </p>
-              <ul className="mt-3 space-y-2 text-gray-600 dark:text-gray-300">
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span>Only generated CSS for classes actually used</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span>Streamlined CSS bundle with minimal footprint</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span>No unused styles in production builds</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span>Better caching with content-hashed filenames</span>
-                </li>
-              </ul>
-            </div>
+          <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700 transition-all hover:border-blue-200 dark:hover:border-blue-700 hover:shadow-md">
+            <h3 className="text-xl font-semibold mb-3">Partial Prerendering (PPR)</h3>
+            <p className="text-gray-600 dark:text-gray-300">
+              This portfolio uses Next.js Partial Prerendering to deliver instant static content with dynamic islands. 
+              The project structure separates static components (/components/static/) from dynamic ones (/components/dynamic/),
+              allowing the page shell to be served immediately while dynamic components load in parallel.
+            </p>
           </div>
         </section>
 
-        <section className="mb-16">
-          <h2 className="text-2xl md:text-3xl font-bold mb-8 pb-2 border-b border-gray-200 dark:border-gray-700">
-            Advanced Techniques
-          </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-3">Dynamic Imports</h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                Heavy components like the terminal interface are loaded via dynamic imports, 
-                reducing the initial JavaScript payload and improving Time to Interactive.
-              </p>
-            </div>
-            
-            <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-3">Font Optimization</h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                Using Next.js font system with subsets and display:swap for optimal loading 
-                performance and prevention of layout shifts.
-              </p>
-            </div>
-            
-            <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-3">Route Prefetching</h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                Intelligent prefetching of likely navigation routes to create 
-                near-instant page transitions for improved user experience.
-              </p>
-            </div>
-            
-            <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-3">Bundle Analysis</h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                Regular bundle analysis to identify and eliminate unnecessary dependencies 
-                and ensure optimal client-side code delivery.
-              </p>
-            </div>
-          </div>
-        </section>
-        
         <section>
           <h2 className="text-2xl md:text-3xl font-bold mb-8 pb-2 border-b border-gray-200 dark:border-gray-700">
-            Performance Metrics
+            Future Optimizations
           </h2>
           
-          <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold mb-4">Core Web Vitals</h3>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-              <div className="bg-white dark:bg-gray-900 p-4 rounded-lg shadow-sm">
-                <div className="text-green-500 text-2xl font-bold mb-2">0.3s</div>
-                <div className="text-gray-700 dark:text-gray-300 font-medium">LCP</div>
-                <div className="text-gray-500 dark:text-gray-400 text-sm mt-1">Largest Contentful Paint</div>
+          <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700 transition-all hover:border-blue-200 dark:hover:border-blue-700 hover:shadow-md">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700 transition-all hover:border-blue-200 dark:hover:border-blue-700 hover:shadow-sm">
+                <h4 className="font-medium text-lg mb-2">Font Subsetting</h4>
+                <p className="text-gray-600 dark:text-gray-300">
+                  Implementing Japanese font subsetting to reduce initial load time.
+                </p>
               </div>
               
-              <div className="bg-white dark:bg-gray-900 p-4 rounded-lg shadow-sm">
-                <div className="text-green-500 text-2xl font-bold mb-2">0.05s</div>
-                <div className="text-gray-700 dark:text-gray-300 font-medium">FID</div>
-                <div className="text-gray-500 dark:text-gray-400 text-sm mt-1">First Input Delay</div>
+              <div className="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700 transition-all hover:border-blue-200 dark:hover:border-blue-700 hover:shadow-sm">
+                <h4 className="font-medium text-lg mb-2">Server Actions</h4>
+                <p className="text-gray-600 dark:text-gray-300">
+                  Implementing server actions for more efficient server-side operations.
+                </p>
               </div>
               
-              <div className="bg-white dark:bg-gray-900 p-4 rounded-lg shadow-sm">
-                <div className="text-green-500 text-2xl font-bold mb-2">0.02</div>
-                <div className="text-gray-700 dark:text-gray-300 font-medium">CLS</div>
-                <div className="text-gray-500 dark:text-gray-400 text-sm mt-1">Cumulative Layout Shift</div>
+              <div className="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700 transition-all hover:border-blue-200 dark:hover:border-blue-700 hover:shadow-sm">
+                <h4 className="font-medium text-lg mb-2">Web Vitals Optimization</h4>
+                <p className="text-gray-600 dark:text-gray-300">
+                  Continuous measurement and improvement of Core Web Vitals metrics.
+                </p>
               </div>
             </div>
-            
-            <p className="mt-6 text-gray-600 dark:text-gray-300 text-center">
-              All metrics in the &quotGood&quot range according to Google&quots Core Web Vitals assessment.
-            </p>
           </div>
         </section>
       </div>
