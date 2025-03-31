@@ -25,6 +25,14 @@ const projects: Project[] = [
     link: "https://www.npmjs.com/package/@enumura/liquidui-animation",
     github: "https://github.com/enumura1/liquidui-animation",
     type: "OSS"
+  },
+  {
+    title: "maze_runner_rs",
+    description: "A simple Rust library for text-based maze games. Navigate a randomly generated maze to the goal using keyboard controls (WASD). Play as a CLI game or integrate it into your project.",
+    technologies: ["Rust", "CLI", "crate"],
+    link: "https://crates.io/crates/maze_runner_rs",
+    github: "https://github.com/enumura1/maze_runner_rs",
+    type: "OSS"
   }
 ];
 
