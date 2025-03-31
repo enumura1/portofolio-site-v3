@@ -6,6 +6,8 @@ export const metadata = {
   description: 'Modern web technologies used in this portfolio',
 }
 
+
+
 export default function TechStack() {
   return (
     <main className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white pt-24 pb-16">
@@ -30,40 +32,96 @@ export default function TechStack() {
           
           <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700 transition-all hover:border-blue-200 dark:hover:border-blue-700 hover:shadow-md">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div className="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700 transition-all hover:border-blue-200 dark:hover:border-blue-700 hover:shadow-sm">
-                <h4 className="font-medium mb-2">Framework</h4>
+              <a 
+                href="https://nextjs.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700 transition-all hover:border-blue-200 dark:hover:border-blue-700 hover:shadow-sm"
+              >
+                <div className="flex justify-between">
+                  <h4 className="font-medium mb-2">Framework</h4>
+                  <ExternalLink size={14} className="text-blue-500" />
+                </div>
                 <p className="text-gray-600 dark:text-gray-300">Next.js</p>
-              </div>
+              </a>
               
-              <div className="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700 transition-all hover:border-blue-200 dark:hover:border-blue-700 hover:shadow-sm">
-                <h4 className="font-medium mb-2">UI</h4>
+              <a 
+                href="https://tailwindcss.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700 transition-all hover:border-blue-200 dark:hover:border-blue-700 hover:shadow-sm"
+              >
+                <div className="flex justify-between">
+                  <h4 className="font-medium mb-2">UI</h4>
+                  <ExternalLink size={14} className="text-blue-500" />
+                </div>
                 <p className="text-gray-600 dark:text-gray-300">Tailwind CSS</p>
-              </div>
+              </a>
               
-              <div className="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700 transition-all hover:border-blue-200 dark:hover:border-blue-700 hover:shadow-sm">
-                <h4 className="font-medium mb-2">Runtime</h4>
+              <a 
+                href="https://react.dev/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700 transition-all hover:border-blue-200 dark:hover:border-blue-700 hover:shadow-sm"
+              >
+                <div className="flex justify-between">
+                  <h4 className="font-medium mb-2">Runtime</h4>
+                  <ExternalLink size={14} className="text-blue-500" />
+                </div>
                 <p className="text-gray-600 dark:text-gray-300">React</p>
-              </div>
+              </a>
               
-              <div className="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700 transition-all hover:border-blue-200 dark:hover:border-blue-700 hover:shadow-sm">
-                <h4 className="font-medium mb-2">Language</h4>
+              <a 
+                href="https://www.typescriptlang.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700 transition-all hover:border-blue-200 dark:hover:border-blue-700 hover:shadow-sm"
+              >
+                <div className="flex justify-between">
+                  <h4 className="font-medium mb-2">Language</h4>
+                  <ExternalLink size={14} className="text-blue-500" />
+                </div>
                 <p className="text-gray-600 dark:text-gray-300">TypeScript</p>
-              </div>
+              </a>
               
-              <div className="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700 transition-all hover:border-blue-200 dark:hover:border-blue-700 hover:shadow-sm">
-                <h4 className="font-medium mb-2">Utilities</h4>
-                <p className="text-gray-600 dark:text-gray-300">clsx / tailwind-merge</p>
-              </div>
+              <a 
+                href="https://github.com/dcastil/tailwind-merge"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700 transition-all hover:border-blue-200 dark:hover:border-blue-700 hover:shadow-sm"
+              >
+                <div className="flex justify-between">
+                  <h4 className="font-medium mb-2">Utilities</h4>
+                  <ExternalLink size={14} className="text-blue-500" />
+                </div>
+                <p className="text-gray-600 dark:text-gray-300">tailwind-merge</p>
+              </a>
               
-              <div className="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700 transition-all hover:border-blue-200 dark:hover:border-blue-700 hover:shadow-sm">
-                <h4 className="font-medium mb-2">Linting</h4>
+              <a 
+                href="https://eslint.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700 transition-all hover:border-blue-200 dark:hover:border-blue-700 hover:shadow-sm"
+              >
+                <div className="flex justify-between">
+                  <h4 className="font-medium mb-2">Linting</h4>
+                  <ExternalLink size={14} className="text-blue-500" />
+                </div>
                 <p className="text-gray-600 dark:text-gray-300">ESLint</p>
-              </div>
+              </a>
               
-              <div className="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700 transition-all hover:border-blue-200 dark:hover:border-blue-700 hover:shadow-sm">
-                <h4 className="font-medium mb-2">Development</h4>
+              <a 
+                href="https://turbo.build/pack"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700 transition-all hover:border-blue-200 dark:hover:border-blue-700 hover:shadow-sm"
+              >
+                <div className="flex justify-between">
+                  <h4 className="font-medium mb-2">Development</h4>
+                  <ExternalLink size={14} className="text-blue-500" />
+                </div>
                 <p className="text-gray-600 dark:text-gray-300">Turbopack</p>
-              </div>
+              </a>
             </div>
           </div>
         </section>
