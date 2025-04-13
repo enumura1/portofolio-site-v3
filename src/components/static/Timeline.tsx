@@ -8,7 +8,7 @@ const timeline: TimelineItem[] = [
   {
     year: "2025",
     topic: "Backend & Frontend Development",
-    description: "Backend development with AWS. Frontend development with React for personal projects."
+    description: "AWS backend architecture and development. Continued React frontend development for personal projects."
   },
   {
     year: "2024",
