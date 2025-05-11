@@ -9,7 +9,7 @@ export function TerminalHero() {
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-3 md:mb-4">enumura1</h1>
         <p className="text-lg md:text-2xl lg:text-3xl mb-6 md:mb-8">
           <span className="text-gray-600 dark:text-gray-300">
-            Web Developer & Indie Hacker
+            Web Engineer & Indie Hacker
           </span>
         </p>
         <div className="flex space-x-5 md:space-x-7 justify-center md:justify-start items-center">
