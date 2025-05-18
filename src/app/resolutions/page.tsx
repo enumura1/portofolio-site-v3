@@ -1,4 +1,3 @@
-// src/app/resolutions/page.tsx
 import Link from 'next/link'
 
 export const metadata = {
