@@ -6,9 +6,9 @@ export function TerminalInterface() {
   const [input, setInput] = useState('');
   const [cursorVisible, setCursorVisible] = useState(true);
   const [commands, setCommands] = useState<{command: string, output: string}[]>([
-    { command: 'whoami', output: 'enumura1 - Web Frontend Developer & Indie Hacker' },
+    { command: 'whoami', output: 'enumura1 - Web Engineer Developer & Indie Hacker' },
     { command: 'ls projects', output: 'hackathon-project.md  open-source.md  portfolio.md' },
-    { command: 'cat skills.txt', output: 'Frontend: HTML, CSS, JavaScript, TypeScript, React \nBackend: Node.js \nOther: Git, Docker, AWS, Blender' }
+    { command: 'cat skills.txt', output: 'Frontend: HTML, CSS, JavaScript, TypeScript, React \nBackend: Node.js, Python \nOther: Git, Docker, AWS, Blender' }
   ]);
   const terminalRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);

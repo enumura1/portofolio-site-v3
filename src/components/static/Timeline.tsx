@@ -7,12 +7,12 @@ type TimelineItem = {
 const timeline: TimelineItem[] = [
   {
     year: "2025",
-    topic: "Backend & Frontend Development",
-    description: "AWS backend architecture and development. Continued React frontend development for personal projects."
+    topic: "Backend & Frontend Development for AI Products",
+    description: "AWS backend architecture and development. Continued React frontend developments ."
   },
   {
     year: "2024",
-    topic: "Backend & Frontend Development",
+    topic: "AI Product Backend & Frontend Development",
     description: "AWS backend architecture and development. Continued React frontend development for personal projects."
   },
   {
