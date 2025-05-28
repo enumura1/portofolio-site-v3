@@ -2,7 +2,7 @@
 
 enumura1's personal portfolio website
 
-## 🚀 Technology Stack
+## Technology Stack
 
 - **Framework**: Next.js 15 (with Partial Prerendering)
 - **Styling**: Tailwind CSS
