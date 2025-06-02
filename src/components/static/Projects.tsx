@@ -38,7 +38,7 @@ const projects: Project[] = [
     title: "api-shooter-game",
     description: "A simple action game where you shoot enemies using HTTP methods. Built with Rust, this CLI game lets you defeat enemies by exploiting their weaknesses to specific HTTP methods (GET, POST, PUT, DELETE).",
     technologies: ["Rust", "Game", "crate"],
-    link: "https://github.com/enumura1/api-shooter-game",
+    link: "https://crates.io/crates/api-shooter-game",
     github: "https://github.com/enumura1/api-shooter-game",
     type: "OSS"
   }
