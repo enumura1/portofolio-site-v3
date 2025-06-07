@@ -22,6 +22,13 @@ const certifications: Certification[] = [
     issuer: "Amazon Web Services",
     icon: "✅",
     link: "https://aws.amazon.com/certification/certified-solutions-architect-professional/"
+  },
+  {
+    title: "AWS Certified Machine Learning - Specialty",
+    date: "2025/6 ~",
+    issuer: "Amazon Web Services",
+    icon: "✅",
+    link: "https://aws.amazon.com/certification/certified-machine-learning-specialty/"
   }
 ];
 
