@@ -1,3 +1,4 @@
+// src/components/static/TerminalInterface.tsx の更新版
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
@@ -13,11 +14,12 @@ export function TerminalInterface() {
   const terminalRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // 利用可能なコマンドリスト (タブ補完のため)
+  // 利用可能なコマンドリスト (タブ補完のため) - OSS contributions追加
   const availableCommands = [
     'about', 'skills', 'projects', 'blog', 'contact', 'clear', 'help', 
     'whoami', 'ls', 'ls -a', 'ls -la', 'ls projects', 'ls -la projects',
-    'cat skills.txt', 'cat resolutions', 'theme dark', 'theme light', 'cat tech-stack', 'echo '
+    'cat skills.txt', 'cat resolutions', 'cat tech-stack', 'cat oss-contributions',
+    'theme dark', 'theme light', 'echo '
   ];
 
   // カーソル点滅のエフェクト
@@ -53,10 +55,10 @@ export function TerminalInterface() {
     // 入力中のコマンド
     const currentInput = input.trim().toLowerCase();
     
-    // catコマンドの特別処理
+    // catコマンドの特別処理 - oss-contributions追加
     if (currentInput.startsWith('cat ')) {
       const partialFile = currentInput.substring(4);
-      const possibleFiles = ['skills.txt', 'resolutions', 'tech-stack'];
+      const possibleFiles = ['skills.txt', 'resolutions', 'tech-stack', 'oss-contributions'];
       const matchingFiles = possibleFiles.filter(file => file.startsWith(partialFile));
       
       if (matchingFiles.length === 1) {
@@ -146,29 +148,41 @@ export function TerminalInterface() {
             setCommands([]);
             return;
         case 'help':
-            output = 'Available commands:\n - about: Navigate to About section\n - skills: Check my technical skills\n - projects: View my projects\n - blog: Read my blog posts\n - contact: Get in touch with me\n - clear: Clear the terminal\n - theme dark/light: Switch color theme\n - cat tech-stack: View web performance insights\n - cat resolutions: See my 2025 developer goals\n\nAlso try: whoami, ls, cat skills.txt';
+            output = 'Available commands:\n - about: Navigate to About section\n - skills: Check my technical skills\n - projects: View my projects\n - blog: Read my blog posts\n - contact: Get in touch with me\n - clear: Clear the terminal\n - theme dark/light: Switch color theme\n - cat tech-stack: View web performance insights\n - cat resolutions: See my 2025 developer goals\n - cat oss-contributions: View OSS contributions\n\nAlso try: whoami, ls, cat skills.txt';
             break;
         case 'whoami':
             output = 'enumura1 - Web Frontend Developer & Indie Hacker';
             break;
         case 'ls':
-            output = 'about/  skills/  blog/  projects/  resolutions  tech-stack.md';
+            output = 'about/  skills/  blog/  projects/  resolutions  tech-stack.md  oss-contributions.md';
             break;
         case 'ls -a':
         case 'ls -la':
-            output = '.  ..  about/  skills/  blog/  projects/  resolutions  tech-stack.md  .config';
+            output = '.  ..  about/  skills/  blog/  projects/  resolutions  tech-stack.md  oss-contributions.md  .config';
             break;
         case 'ls projects':
         case 'ls -la projects':
             output = 'hackathon-project.md  open-source.md  portfolio.md';
             break;
         case 'cat skills.txt':
-            output = 'Frontend: HTML, CSS, JavaScript, TypeScript, React\nBackend: Node.js \nOther: Git, Docker, AWS, Blender';
+            output = 'Frontend: HTML, CSS, JavaScript, TypeScript, React\nBackend: Node.js, Python\nOther: Git, Docker, AWS, Blender';
             break;
         case 'cat resolutions':
             output = 'Navigating to Developer Resolutions page...';
             setTimeout(() => {
               window.location.href = '/resolutions';
+            }, 200);
+            break;
+        case 'cat tech-stack':
+            output = 'Navigating to Web Performance Insights...';
+            setTimeout(() => {
+            window.location.href = '/tech-stack';
+            }, 200);
+            break;
+        case 'cat oss-contributions':
+            output = 'Navigating to OSS Contributions page...';
+            setTimeout(() => {
+            window.location.href = '/oss-contributions';
             }, 200);
             break;
         case 'theme dark':
@@ -178,12 +192,6 @@ export function TerminalInterface() {
         case 'theme light':
             document.documentElement.classList.remove('dark');
             output = 'Switching to light theme...';
-            break;
-        case 'cat tech-stack':
-            output = 'Navigating to Web Performance Insights...';
-            setTimeout(() => {
-            window.location.href = '/tech-stack';
-            }, 200);
             break;
         case 'sudo rm -rf /':
             output = 'Nice try! 😉 But my portfolio has backup systems.';

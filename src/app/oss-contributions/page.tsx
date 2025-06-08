@@ -202,8 +202,11 @@ async function OSSContributionsList() {
 
       {ossContributions.length > 0 && (
         <div className="mt-8 text-center">
-          <p className="text-sm text-gray-600 dark:text-gray-400">
+          <p className="text-sm dark:text-gray-400">
             Showing contributions to external open source projects
+          </p>
+          <p className="text-sm dark:text-gray-400 mt-1">
+            Personal repositories, hackathons, and student projects excluded
           </p>
         </div>
       )}
