@@ -1,4 +1,3 @@
-// src/components/static/TerminalInterface.tsx の更新版
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
@@ -8,16 +7,16 @@ export function TerminalInterface() {
   const [cursorVisible, setCursorVisible] = useState(true);
   const [commands, setCommands] = useState<{command: string, output: string}[]>([
     { command: 'whoami', output: 'enumura1 - Web Engineer & Indie Hacker' },
-    { command: 'ls projects', output: 'hackathon-project.md  open-source.md  portfolio.md' },
+    { command: 'ls', output: 'about, skills, certifications, blog, projects, oss' },
     { command: 'cat skills.txt', output: 'Frontend: HTML, CSS, JavaScript, TypeScript, React \nBackend: Node.js, Python \nOther: Git, Docker, AWS, Blender' }
   ]);
   const terminalRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // 利用可能なコマンドリスト (タブ補完のため) - OSS contributions追加
+  // 利用可能なコマンドリスト タブ補完
   const availableCommands = [
-    'about', 'skills', 'projects', 'blog', 'contact', 'clear', 'help', 
-    'whoami', 'ls', 'ls -a', 'ls -la', 'ls projects', 'ls -la projects',
+    'about', 'skills', 'certifications', 'projects', 'blog', 'oss', 'contact', 'clear', 'help', 
+    'whoami', 'ls', 'ls -a', 'ls -la',
     'cat skills.txt', 'cat resolutions', 'cat tech-stack', 'cat oss-contributions',
     'theme dark', 'theme light', 'echo '
   ];
@@ -55,7 +54,7 @@ export function TerminalInterface() {
     // 入力中のコマンド
     const currentInput = input.trim().toLowerCase();
     
-    // catコマンドの特別処理 - oss-contributions追加
+    // catコマンドの特別処理
     if (currentInput.startsWith('cat ')) {
       const partialFile = currentInput.substring(4);
       const possibleFiles = ['skills.txt', 'resolutions', 'tech-stack', 'oss-contributions'];
@@ -71,12 +70,6 @@ export function TerminalInterface() {
           output: `Possible commands:\n${options}` 
         }]);
       }
-      return;
-    }
-    
-    // lsコマンドの特別処理
-    if (currentInput === 'ls ') {
-      setInput('ls projects');
       return;
     }
     
@@ -132,6 +125,10 @@ export function TerminalInterface() {
             output = 'Analyzing developer skills...';
             scrollToSection('skills');
             break;
+        case 'certifications':
+            output = 'Loading certifications...';
+            scrollToSection('certifications');
+            break;
         case 'projects':
             output = 'Loading projects...';
             scrollToSection('projects');
@@ -139,6 +136,10 @@ export function TerminalInterface() {
         case 'blog':
             output = 'Opening blog entries...';
             scrollToSection('blog');
+            break;
+        case 'oss':
+            output = 'Loading OSS contributions...';
+            scrollToSection('oss-contributions');
             break;
         case 'contact':
             output = 'Establishing connection...';
@@ -148,21 +149,17 @@ export function TerminalInterface() {
             setCommands([]);
             return;
         case 'help':
-            output = 'Available commands:\n - about: Navigate to About section\n - skills: Check my technical skills\n - projects: View my projects\n - blog: Read my blog posts\n - contact: Get in touch with me\n - clear: Clear the terminal\n - theme dark/light: Switch color theme\n - cat tech-stack: View web performance insights\n - cat resolutions: See my 2025 developer goals\n - cat oss-contributions: View OSS contributions\n\nAlso try: whoami, ls, cat skills.txt';
+            output = 'Available commands:\n - about: Navigate to About section\n - skills: Check my technical skills\n - certifications: View my certifications\n - projects: View my projects\n - blog: Read my blog posts\n - oss: View OSS contributions\n - contact: Get in touch with me\n - clear: Clear the terminal\n - theme dark/light: Switch color theme\n - cat tech-stack: View web performance insights\n - cat resolutions: See my 2025 developer goals\n - cat oss-contributions: View OSS contributions page\n\nAlso try: whoami, ls, cat skills.txt';
             break;
         case 'whoami':
             output = 'enumura1 - Web Frontend Developer & Indie Hacker';
             break;
         case 'ls':
-            output = 'about/  skills/  blog/  projects/  resolutions  tech-stack.md  oss-contributions.md';
+            output = 'about  skills  certifications  blog  projects  oss';
             break;
         case 'ls -a':
         case 'ls -la':
-            output = '.  ..  about/  skills/  blog/  projects/  resolutions  tech-stack.md  oss-contributions.md  .config';
-            break;
-        case 'ls projects':
-        case 'ls -la projects':
-            output = 'hackathon-project.md  open-source.md  portfolio.md';
+            output = '.  ..  about  skills  certifications  blog  projects  oss  .config';
             break;
         case 'cat skills.txt':
             output = 'Frontend: HTML, CSS, JavaScript, TypeScript, React\nBackend: Node.js, Python\nOther: Git, Docker, AWS, Blender';
@@ -252,7 +249,7 @@ export function TerminalInterface() {
           </div>
         </div>
         
-        {/* ターミナルコンテンツ - カスタムスクロールバー */}
+        {/* ターミナルコンテンツ */}
         <div 
           ref={terminalRef}
           className="bg-white dark:bg-gray-900 p-4 h-96 overflow-y-auto font-mono text-sm text-gray-700 dark:text-gray-300
