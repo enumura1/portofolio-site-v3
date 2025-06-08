@@ -15,6 +15,7 @@ export function TerminalInterface() {
 
   // 利用可能なコマンドリスト タブ補完
   const availableCommands = [
+    'cd about', 'cd skills', 'cd certifications', 'cd projects', 'cd blog', 'cd oss', 'cd contact',
     'about', 'skills', 'certifications', 'projects', 'blog', 'oss', 'contact', 'clear', 'help', 
     'whoami', 'ls', 'ls -a', 'ls -la',
     'cat skills.txt', 'cat resolutions', 'cat tech-stack', 'cat oss-contributions',
@@ -53,6 +54,25 @@ export function TerminalInterface() {
   
     // 入力中のコマンド
     const currentInput = input.trim().toLowerCase();
+    
+    // cdコマンドの特別処理
+    if (currentInput.startsWith('cd ')) {
+      const partialDir = currentInput.substring(3);
+      const possibleDirs = ['about', 'skills', 'certifications', 'projects', 'blog', 'oss', 'contact'];
+      const matchingDirs = possibleDirs.filter(dir => dir.startsWith(partialDir));
+      
+      if (matchingDirs.length === 1) {
+        setInput(`cd ${matchingDirs[0]}`);
+      } else if (matchingDirs.length > 0) {
+        // 複数のマッチがある場合、オプションを表示
+        const options = matchingDirs.map(d => `cd ${d}`).join('  ');
+        setCommands(prev => [...prev, { 
+          command: currentInput, 
+          output: `Possible commands:\n${options}` 
+        }]);
+      }
+      return;
+    }
     
     // catコマンドの特別処理
     if (currentInput.startsWith('cat ')) {
@@ -117,6 +137,36 @@ export function TerminalInterface() {
     
     // 各コマンドの処理
     switch (cleanCmd) {
+        // cdコマンド
+        case 'cd about':
+            output = 'Moving to about section...';
+            scrollToSection('about');
+            break;
+        case 'cd skills':
+            output = 'Analyzing developer skills...';
+            scrollToSection('skills');
+            break;
+        case 'cd certifications':
+            output = 'Loading certifications...';
+            scrollToSection('certifications');
+            break;
+        case 'cd projects':
+            output = 'Loading projects...';
+            scrollToSection('projects');
+            break;
+        case 'cd blog':
+            output = 'Opening blog entries...';
+            scrollToSection('blog');
+            break;
+        case 'cd oss':
+            output = 'Loading OSS contributions...';
+            scrollToSection('oss-contributions');
+            break;
+        case 'cd contact':
+            output = 'Establishing connection...';
+            scrollToSection('contact');
+            break;
+        // 従来のコマンド（後方互換性のため残す）
         case 'about':
             output = 'Moving to about section...';
             scrollToSection('about');
@@ -149,7 +199,7 @@ export function TerminalInterface() {
             setCommands([]);
             return;
         case 'help':
-            output = 'Available commands:\n - about: Navigate to About section\n - skills: Check my technical skills\n - certifications: View my certifications\n - projects: View my projects\n - blog: Read my blog posts\n - oss: View OSS contributions\n - contact: Get in touch with me\n - clear: Clear the terminal\n - theme dark/light: Switch color theme\n - cat tech-stack: View web performance insights\n - cat resolutions: See my 2025 developer goals\n - cat oss-contributions: View OSS contributions page\n\nAlso try: whoami, ls, cat skills.txt';
+            output = 'Available commands:\n - cd about: Navigate to About section\n - cd skills: Check my technical skills\n - cd certifications: View my certifications\n - cd projects: View my projects\n - cd blog: Read my blog posts\n - cd oss: View OSS contributions\n - cd contact: Get in touch with me\n - clear: Clear the terminal\n - theme dark/light: Switch color theme\n - cat tech-stack: View web performance insights\n - cat resolutions: See my 2025 developer goals\n - cat oss-contributions: View OSS contributions page\n\nAlso try: whoami, ls, cat skills.txt';
             break;
         case 'whoami':
             output = 'enumura1 - Web Frontend Developer & Indie Hacker';
