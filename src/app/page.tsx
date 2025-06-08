@@ -6,6 +6,7 @@ import { Skills } from '@/components/static/Skills'
 import { Timeline } from '@/components/static/Timeline'
 import { Certifications } from '@/components/static/Certifications'
 import { Projects } from '@/components/static/Projects'
+import { OSSContributions } from '@/components/static/OSSContributions'
 import { Footer } from '@/components/static/Footer'
 
 // dynamic
@@ -27,6 +28,7 @@ export default function Home() {
         <Zenn />
         <Blog />
         <Projects />
+        <OSSContributions />
         <Footer />
       </main>
     </>
