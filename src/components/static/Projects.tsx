@@ -11,12 +11,28 @@ type Project = {
 
 const projects: Project[] = [
   {
+    title: "MonoPon - AI-Powered Decluttering Support App",
+    description: "Flutter-based AI decluttering app using Google Cloud Vertex AI to assess item values and preserve digital memories.",
+    technologies: ["Flutter", "FastAPI", "Google Cloud Platform", "Vertex AI", "Gemini AI", "Cloud Run"],
+    link: "https://protopedia.net/prototype/7540",
+    github: "https://github.com/team-nup/2025-edd-frontend",
+    type: "Hackathon"
+  },
+  {
     title: "Kashika - Making Business Chats More Understandable with Diagrams",
     description: "An AI assistant that supports explanations in business chats with diagrams. Offers optimal suggestions from 300 diagram templates using a RAG system, and provides editing features in a web application. The two-stage search process successfully reduced costs by 97%.",
     technologies: ["React", "Vite", "TypeScript", "shadcn/ui", "AWS Lambda", "Python", "Amazon Bedrock", "scikit-learn", "Docker"],
     link: "https://protopedia.net/prototype/6575",
     github: "https://github.com/enumura1/kasika-web-app",
     type: "Hackathon"
+  },
+  {
+    title: "chatbot-flow-editor",
+    description: "Visual chatbot flow editor with drag-and-drop interface. Design conversation paths, test flows in a live chat simulator, and export as JSON.",
+    technologies: ["React", "TypeScript", "npm package"],
+    link: "https://enumura1.github.io/chatbot-flow-editor/",
+    github: "https://github.com/enumura1/chatbot-flow-editor",
+    type: "OSS"
   },
   {
     title: "liquidui-animation",
