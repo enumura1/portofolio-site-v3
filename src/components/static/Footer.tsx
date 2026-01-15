@@ -1,3 +1,5 @@
+"use client";
+
 import { BestTerminalButton } from "./TerminalAnchorButton";
 
 export function Footer() {
