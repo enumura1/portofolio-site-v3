@@ -11,21 +11,21 @@ type Certification = {
 const certifications: Certification[] = [
   {
     title: "AWS Solutions Architect Associate",
-    date: "2024/10 ~",
+    date: "Certified Oct 2024",
     issuer: "Amazon Web Services",
     icon: "✅",
     link: "https://aws.amazon.com/certification/certified-solutions-architect-associate/"
   },
   {
     title: "AWS Solutions Architect Professional",
-    date: "2025/3 ~",
+    date: "Certified Mar 2025",
     issuer: "Amazon Web Services",
     icon: "✅",
     link: "https://aws.amazon.com/certification/certified-solutions-architect-professional/"
   },
   {
     title: "AWS Certified Machine Learning - Specialty",
-    date: "2025/6 ~",
+    date: "Certified Jun 2025",
     issuer: "Amazon Web Services",
     icon: "✅",
     link: "https://aws.amazon.com/certification/certified-machine-learning-specialty/"
