@@ -23,13 +23,13 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const toggleTheme = () => {
     setTheme(prevTheme => {
       const newTheme = prevTheme === 'dark' ? 'light' : 'dark'
-      
+
       if (newTheme === 'dark') {
         document.documentElement.classList.add('dark')
       } else {
         document.documentElement.classList.remove('dark')
       }
-      
+
       return newTheme
     })
   }

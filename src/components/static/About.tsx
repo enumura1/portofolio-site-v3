@@ -4,7 +4,7 @@ export function About() {
       <h2 className="text-4xl font-bold mb-8">🧑‍💻About Me</h2>
       <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-8 text-xl">
         After graduating from university, I have been working as a web application backend engineer.
-        I enjoy development and creating things, and recently I am interested in improving front-end performance.
+        I enjoy development and creating things. I am interested in system design and aim to develop with performance in mind.
       </p>
     </section>
   )
