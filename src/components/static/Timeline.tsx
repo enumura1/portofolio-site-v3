@@ -1,3 +1,8 @@
+"use client";
+
+import { useState } from "react";
+import { ChevronDown, ChevronUp } from "lucide-react";
+
 type TimelineItem = {
   year: string;
   topic: string;
@@ -6,35 +11,45 @@ type TimelineItem = {
 
 const timeline: TimelineItem[] = [
   {
+    year: "2026",
+    topic: "Backend Development for AI-Integrated Products",
+    description: "System architecture design and backend development for AI-integrated products using AWS."
+  },
+  {
     year: "2025",
-    topic: "Backend & Frontend Development for AI Products",
-    description: "AWS backend architecture and development. Continued React frontend developments ."
+    topic: "Backend & Full-Stack Development for AI-Integrated Products",
+    description: "System architecture design and backend development for AI-integrated products using AWS. Also developed a full-stack AI image generation app with Next.js and Google Cloud."
   },
   {
     year: "2024",
-    topic: "AI Product Backend & Frontend Development",
-    description: "AWS backend architecture and development. Continued React frontend development for personal projects."
+    topic: "Backend Development for AI-Integrated Products",
+    description: "Backend design and development for AI-integrated products using AWS."
   },
   {
     year: "2023",
-    topic: "System Design & Frontend Development",
-    description: "AWS system architecture design and operation maintenance. React frontend development.",
-   },
+    topic: "Web Application Development",
+    description: "Web application development, both frontend and backend."
+  },
   {
     year: "2022",
     topic: "Mobile Development",
-    description: "Mobile app development with React Native in team environment. Frontend web development as secondary role."
+    description: "Mobile app development with React Native, along with frontend web development."
   }
 ];
 
+const DEFAULT_SHOW_COUNT = 3;
+
 export function Timeline() {
+  const [showAll, setShowAll] = useState(false);
+  const displayedItems = showAll ? timeline : timeline.slice(0, DEFAULT_SHOW_COUNT);
+
   return (
     <section className="py-20 px-4 max-w-4xl mx-auto" id="skills">
       <h2 className="text-4xl font-bold mb-8">🛠️Dev Experience</h2>
       <div className="relative">
         <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-blue-500"></div>
-        
-        {timeline.map((item, index) => (
+
+        {displayedItems.map((item, index) => (
           <div key={index} className="relative pl-8 mb-16 last:mb-0">
             <div className="absolute left-0 top-1.5 w-4 h-4 rounded-full bg-blue-500 transform -translate-x-1/2 z-10">
               {index === 0 && (
@@ -58,6 +73,27 @@ export function Timeline() {
             </div>
           </div>
         ))}
+
+        {timeline.length > DEFAULT_SHOW_COUNT && (
+          <div className="relative pl-8 mt-4">
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="flex items-center gap-2 bg-white dark:bg-gray-800 px-4 py-2 rounded-md border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 transition-all shadow-sm hover:shadow-md"
+            >
+              {showAll ? (
+                <>
+                  <span>Show less</span>
+                  <ChevronUp size={18} className="text-blue-500" />
+                </>
+              ) : (
+                <>
+                  <span>Show more</span>
+                  <ChevronDown size={18} className="text-blue-500" />
+                </>
+              )}
+            </button>
+          </div>
+        )}
       </div>
     </section>
   )
