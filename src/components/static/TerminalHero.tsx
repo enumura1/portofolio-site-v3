@@ -12,7 +12,7 @@ export function TerminalHero() {
             Software Engineer
           </span>
         </p>
-        <div className="flex space-x-5 md:space-x-7 justify-center md:justify-start items-center">
+        <div className="flex flex-wrap gap-x-5 md:gap-x-7 gap-y-2 md:gap-y-3 justify-center md:justify-start items-center">
           <a 
             href="https://zenn.dev/enumura" 
             target="_blank"
@@ -29,13 +29,21 @@ export function TerminalHero() {
           >
             Qiita
           </a>
-          <a 
-            href="https://github.com/enumura1" 
+          <a
+            href="https://github.com/enumura1"
             target="_blank"
             rel="noopener noreferrer"
             className="text-lg md:text-xl lg:text-3xl font-medium text-gray-400 dark:text-gray-500 hover:text-gray-500 dark:hover:text-gray-400 transition-colors"
           >
             GitHub
+          </a>
+          <a
+            href="https://speakerdeck.com/enumura1"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-lg md:text-xl lg:text-3xl font-medium text-teal-300 dark:text-teal-400 hover:text-teal-400 dark:hover:text-teal-300 transition-colors"
+          >
+            SpeakerDeck
           </a>
         </div>
       </div>
