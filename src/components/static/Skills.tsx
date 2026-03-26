@@ -39,6 +39,13 @@ const skills: Skill[] = [
       { name: "Blender", icon: "🎨" },
       { name: "Three.js", icon: "🌐" }
     ]
+  },
+  {
+    name: "AI Tools",
+    items: [
+      { name: "Claude Code", icon: "🤖" },
+      { name: "Codex CLI", icon: "🤖" }
+    ]
   }
 ];
 
