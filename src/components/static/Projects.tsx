@@ -30,6 +30,14 @@ const projects: Project[] = [
     type: "Hackathon"
   },
   {
+    title: "py-sql-cleaner",
+    description: "A Python tool for managing SQL embedded in Python source files. Supports scanning, formatting, and extracting inline SQL queries, with safe handling of dynamic templates like f-strings and Jinja.",
+    technologies: ["Python", "CLI", "PyPI package"],
+    link: "https://enumura1.github.io/py-sql-cleaner/",
+    github: "https://github.com/enumura1/py-sql-cleaner",
+    type: "OSS"
+  },
+  {
     title: "chatbot-flow-editor",
     description: "Visual chatbot flow editor with drag-and-drop interface. Design conversation paths, test flows in a live chat simulator, and export as JSON.",
     technologies: ["React", "TypeScript", "npm package"],
