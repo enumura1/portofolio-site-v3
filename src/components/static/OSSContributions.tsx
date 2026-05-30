@@ -1,11 +1,57 @@
 import Link from 'next/link'
-import { GitPullRequest, ExternalLink } from 'lucide-react'
+import { GitPullRequest, ExternalLink, Package } from 'lucide-react'
 
 export function OSSContributions() {
   return (
     <section className="py-20 px-4 max-w-4xl mx-auto" id="oss-contributions">
       <h2 className="text-4xl font-bold mb-8">🚀 Open Source Contributions</h2>
       
+      {/* py-sql-cleaner */}
+      <div className="bg-gray-50 dark:bg-gray-800
+                    border border-gray-200 dark:border-gray-700 rounded-xl p-6 mb-4
+                    transition-all duration-300 hover:border-blue-200 dark:hover:border-blue-700 hover:shadow-md">
+        <div className="flex items-start gap-4">
+          <div className="flex-shrink-0">
+            <div className="w-12 h-12 bg-green-500/20 dark:bg-green-500/30 rounded-lg
+                          flex items-center justify-center">
+              <Package className="w-6 h-6 text-green-500" />
+            </div>
+          </div>
+
+          <div className="flex-1">
+            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+              py-sql-cleaner
+            </h3>
+            <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
+              A Python tool for managing SQL embedded in Python source files.
+              Supports scanning, formatting, and extracting inline SQL queries,
+              with safe handling of dynamic templates like f-strings and Jinja.
+            </p>
+
+            <div className="flex items-center gap-4">
+              <a
+                href="https://github.com/enumura1/py-sql-cleaner"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 hover:text-blue-400 inline-flex items-center text-sm"
+              >
+                <span className="mr-1">GitHub</span>
+                <ExternalLink className="w-3 h-3" />
+              </a>
+              <a
+                href="https://enumura1.github.io/py-sql-cleaner/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 hover:text-blue-400 inline-flex items-center text-sm"
+              >
+                <span className="mr-1">Docs</span>
+                <ExternalLink className="w-3 h-3" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* メインCTAカード */}
       <div className="bg-gray-50 dark:bg-gray-800 
                     border border-gray-200 dark:border-gray-700 rounded-xl p-6
