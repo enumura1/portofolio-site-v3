@@ -1,22 +1,39 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import { useLanguage } from '@/components/ui/language-provider';
+
+type CommandHistory = { command: string; output: string };
+
+const skillSummary = {
+  ja: 'フロントエンド: JavaScript, TypeScript, React\nバックエンド: Kotlin, Node.js, Python\nデータベース・検索: PostgreSQL, DynamoDB, Aurora, Redshift, OpenSearch\nクラウド: AWS, Google Cloud\nインフラ: Kubernetes, Docker, Terraform, CloudFormation\nデータ処理: Kafka, Airflow\nAIツール: Claude Code, Codex',
+  en: 'Frontend: JavaScript, TypeScript, React\nBackend: Kotlin, Node.js, Python\nData & Search: PostgreSQL, DynamoDB, Aurora, Redshift, OpenSearch\nCloud: AWS, Google Cloud\nInfrastructure: Kubernetes, Docker, Terraform, CloudFormation\nData Processing: Kafka, Airflow\nAI Tools: Claude Code, Codex',
+};
+
+function initialCommands(language: 'ja' | 'en'): CommandHistory[] {
+  return [
+    { command: 'whoami', output: `enumura1 - ${language === 'ja' ? 'ソフトウェアエンジニア' : 'Software Engineer'}` },
+    { command: 'ls', output: 'about, skills, certifications, projects, oss' },
+    { command: 'cat skills.txt', output: skillSummary[language] },
+  ];
+}
 
 export function TerminalInterface() {
+  const { language } = useLanguage();
   const [input, setInput] = useState('');
   const [cursorVisible, setCursorVisible] = useState(true);
-  const [commands, setCommands] = useState<{command: string, output: string}[]>([
-    { command: 'whoami', output: 'enumura1 - Software Engineer' },
-    { command: 'ls', output: 'about, skills, certifications, blog, projects, oss' },
-    { command: 'cat skills.txt', output: 'Frontend: HTML, CSS, JavaScript, TypeScript, React \nBackend: Node.js, Python \nOther: Git, Docker, AWS, Blender' }
-  ]);
+  const [commands, setCommands] = useState<CommandHistory[]>(() => initialCommands('ja'));
   const terminalRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
+  useEffect(() => {
+    setCommands(initialCommands(language));
+  }, [language]);
+
   // 利用可能なコマンドリスト タブ補完
   const availableCommands = [
-    'cd about', 'cd skills', 'cd certifications', 'cd projects', 'cd blog', 'cd oss', 'cd contact',
-    'about', 'skills', 'certifications', 'projects', 'blog', 'oss', 'contact', 'clear', 'help', 
+    'cd about', 'cd skills', 'cd certifications', 'cd projects', 'cd oss', 'cd contact',
+    'about', 'skills', 'certifications', 'projects', 'oss', 'contact', 'clear', 'help',
     'whoami', 'ls', 'ls -a', 'ls -la',
     'cat skills.txt', 'cat resolutions', 'cat tech-stack', 'cat oss-contributions',
     'theme dark', 'theme light', 'echo '
@@ -58,7 +75,7 @@ export function TerminalInterface() {
     // cdコマンドの特別処理
     if (currentInput.startsWith('cd ')) {
       const partialDir = currentInput.substring(3);
-      const possibleDirs = ['about', 'skills', 'certifications', 'projects', 'blog', 'oss', 'contact'];
+      const possibleDirs = ['about', 'skills', 'certifications', 'projects', 'oss', 'contact'];
       const matchingDirs = possibleDirs.filter(dir => dir.startsWith(partialDir));
       
       if (matchingDirs.length === 1) {
@@ -68,7 +85,7 @@ export function TerminalInterface() {
         const options = matchingDirs.map(d => `cd ${d}`).join('  ');
         setCommands(prev => [...prev, { 
           command: currentInput, 
-          output: `Possible commands:\n${options}` 
+          output: `${language === 'ja' ? '候補のコマンド' : 'Possible commands'}:\n${options}`
         }]);
       }
       return;
@@ -87,7 +104,7 @@ export function TerminalInterface() {
         const options = matchingFiles.map(f => `cat ${f}`).join('  ');
         setCommands(prev => [...prev, { 
           command: currentInput, 
-          output: `Possible commands:\n${options}` 
+          output: `${language === 'ja' ? '候補のコマンド' : 'Possible commands'}:\n${options}`
         }]);
       }
       return;
@@ -124,7 +141,7 @@ export function TerminalInterface() {
         const options = matchingCommands.join('  ');
         setCommands(prev => [...prev, { 
           command: currentInput, 
-          output: `Possible commands:\n${options}` 
+          output: `${language === 'ja' ? '候補のコマンド' : 'Possible commands'}:\n${options}`
         }]);
       }
     }
@@ -139,115 +156,109 @@ export function TerminalInterface() {
     switch (cleanCmd) {
         // cdコマンド
         case 'cd about':
-            output = 'Moving to about section...';
+            output = language === 'ja' ? '自己紹介へ移動します...' : 'Moving to about section...';
             scrollToSection('about');
             break;
         case 'cd skills':
-            output = 'Analyzing developer skills...';
+            output = language === 'ja' ? 'スキルを表示します...' : 'Analyzing developer skills...';
             scrollToSection('skills');
             break;
         case 'cd certifications':
-            output = 'Loading certifications...';
+            output = language === 'ja' ? '資格を表示します...' : 'Loading certifications...';
             scrollToSection('certifications');
             break;
         case 'cd projects':
-            output = 'Loading projects...';
+            output = language === 'ja' ? 'プロジェクトを表示します...' : 'Loading projects...';
             scrollToSection('projects');
             break;
-        case 'cd blog':
-            output = 'Opening blog entries...';
-            scrollToSection('blog');
-            break;
         case 'cd oss':
-            output = 'Loading OSS contributions...';
+            output = language === 'ja' ? 'OSSコントリビュートを表示します...' : 'Loading OSS contributions...';
             scrollToSection('oss-contributions');
             break;
         case 'cd contact':
-            output = 'Establishing connection...';
+            output = language === 'ja' ? '連絡先へ移動します...' : 'Establishing connection...';
             scrollToSection('contact');
             break;
         // 従来のコマンド（後方互換性のため残す）
         case 'about':
-            output = 'Moving to about section...';
+            output = language === 'ja' ? '自己紹介へ移動します...' : 'Moving to about section...';
             scrollToSection('about');
             break;
         case 'skills':
-            output = 'Analyzing developer skills...';
+            output = language === 'ja' ? 'スキルを表示します...' : 'Analyzing developer skills...';
             scrollToSection('skills');
             break;
         case 'certifications':
-            output = 'Loading certifications...';
+            output = language === 'ja' ? '資格を表示します...' : 'Loading certifications...';
             scrollToSection('certifications');
             break;
         case 'projects':
-            output = 'Loading projects...';
+            output = language === 'ja' ? 'プロジェクトを表示します...' : 'Loading projects...';
             scrollToSection('projects');
             break;
-        case 'blog':
-            output = 'Opening blog entries...';
-            scrollToSection('blog');
-            break;
         case 'oss':
-            output = 'Loading OSS contributions...';
+            output = language === 'ja' ? 'OSSコントリビュートを表示します...' : 'Loading OSS contributions...';
             scrollToSection('oss-contributions');
             break;
         case 'contact':
-            output = 'Establishing connection...';
+            output = language === 'ja' ? '連絡先へ移動します...' : 'Establishing connection...';
             scrollToSection('contact');
             break;
         case 'clear':
             setCommands([]);
             return;
         case 'help':
-            output = 'Available commands:\n - cd about: Navigate to About section\n - cd skills: Check my technical skills\n - cd certifications: View my certifications\n - cd projects: View my projects\n - cd blog: Read my blog posts\n - cd oss: View OSS contributions\n - cd contact: Get in touch with me\n - clear: Clear the terminal\n - theme dark/light: Switch color theme\n - cat tech-stack: View web performance insights\n - cat resolutions: See my 2025 developer goals\n - cat oss-contributions: View OSS contributions page\n\nAlso try: whoami, ls, cat skills.txt';
+            output = language === 'ja'
+              ? '使用できるコマンド:\n - cd about: 自己紹介へ移動\n - cd skills: スキルを表示\n - cd certifications: 資格を表示\n - cd projects: プロジェクトを表示\n - cd oss: OSSコントリビュートを表示\n - cd contact: 連絡先へ移動\n - clear: ターミナルを消去\n - theme dark/light: テーマを切替\n - cat tech-stack: 技術スタックページを表示\n - cat resolutions: 目標ページを表示\n - cat oss-contributions: OSSコントリビュートページを表示\n\nwhoami、ls、cat skills.txt も試せます。'
+              : 'Available commands:\n - cd about: Navigate to About section\n - cd skills: Check my technical skills\n - cd certifications: View my certifications\n - cd projects: View my projects\n - cd oss: View OSS contributions\n - cd contact: Get in touch with me\n - clear: Clear the terminal\n - theme dark/light: Switch color theme\n - cat tech-stack: View web performance insights\n - cat resolutions: See my 2025 developer goals\n - cat oss-contributions: View OSS contributions page\n\nAlso try: whoami, ls, cat skills.txt';
             break;
         case 'whoami':
-            output = 'enumura1 - Web Frontend Developer & Indie Hacker';
+            output = `enumura1 - ${language === 'ja' ? 'ソフトウェアエンジニア' : 'Software Engineer'}`;
             break;
         case 'ls':
-            output = 'about  skills  certifications  blog  projects  oss';
+            output = 'about  skills  certifications  projects  oss';
             break;
         case 'ls -a':
         case 'ls -la':
-            output = '.  ..  about  skills  certifications  blog  projects  oss  .config';
+            output = '.  ..  about  skills  certifications  projects  oss  .config';
             break;
         case 'cat skills.txt':
-            output = 'Frontend: HTML, CSS, JavaScript, TypeScript, React\nBackend: Node.js, Python\nOther: Git, Docker, AWS, Blender';
+            output = skillSummary[language];
             break;
         case 'cat resolutions':
-            output = 'Navigating to Developer Resolutions page...';
+            output = language === 'ja' ? '開発目標ページへ移動します...' : 'Navigating to Developer Resolutions page...';
             setTimeout(() => {
               window.location.href = '/resolutions';
             }, 200);
             break;
         case 'cat tech-stack':
-            output = 'Navigating to Web Performance Insights...';
+            output = language === 'ja' ? '技術スタックページへ移動します...' : 'Navigating to Web Performance Insights...';
             setTimeout(() => {
             window.location.href = '/tech-stack';
             }, 200);
             break;
         case 'cat oss-contributions':
-            output = 'Navigating to OSS Contributions page...';
+            output = language === 'ja' ? 'OSSコントリビュートページへ移動します...' : 'Navigating to OSS Contributions page...';
             setTimeout(() => {
             window.location.href = '/oss-contributions';
             }, 200);
             break;
         case 'theme dark':
             document.documentElement.classList.add('dark');
-            output = 'Switching to dark theme...';
+            output = language === 'ja' ? 'ダークテーマへ切り替えます...' : 'Switching to dark theme...';
             break;
         case 'theme light':
             document.documentElement.classList.remove('dark');
-            output = 'Switching to light theme...';
+            output = language === 'ja' ? 'ライトテーマへ切り替えます...' : 'Switching to light theme...';
             break;
         case 'sudo rm -rf /':
-            output = 'Nice try! 😉 But my portfolio has backup systems.';
+            output = language === 'ja' ? 'おっと！😉 このポートフォリオにはバックアップがあります。' : 'Nice try! 😉 But my portfolio has backup systems.';
             break;
         default:
         if (cleanCmd.startsWith('echo ')) {
           output = cleanCmd.substring(5);
         } else {
-          output = `Command not found: ${cleanCmd}\nType 'help' for available commands`;
+          output = language === 'ja' ? `コマンドが見つかりません: ${cleanCmd}\n利用可能なコマンドは 'help' で確認できます` : `Command not found: ${cleanCmd}\nType 'help' for available commands`;
         }
     }
 
@@ -342,7 +353,7 @@ export function TerminalInterface() {
       
       {/* 説明テキスト */}
         <p className="mt-2 text-center text-lg text-gray-400 dark:text-gray-500">
-          Type <span className="bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-blue-500 dark:text-blue-400 font-medium">help</span> to see available commands. <span className="text-sm ml-1">(Tab for completion)</span>
+          {language === 'ja' ? '利用可能なコマンドは ' : 'Type '}<span className="bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-blue-500 dark:text-blue-400 font-medium">help</span>{language === 'ja' ? ' で確認できます。' : ' to see available commands.'} <span className="text-sm ml-1">{language === 'ja' ? '（Tabで補完）' : '(Tab for completion)'}</span>
         </p>
     </div>
   );

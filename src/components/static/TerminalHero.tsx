@@ -1,7 +1,12 @@
+"use client"
+
 import { ChevronDown } from 'lucide-react'
 import { TerminalInterface } from './TerminalInterface'
+import { useLanguage } from '@/components/ui/language-provider'
 
 export function TerminalHero() {
+  const { language } = useLanguage()
+
   return (
     <section className="min-h-screen flex flex-col md:flex-row items-center justify-center px-4 md:px-12 lg:px-20 gap-8 md:gap-16 pt-16 md:pt-0 relative">
       {/* 左側：my info */}
@@ -9,7 +14,7 @@ export function TerminalHero() {
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-3 md:mb-4">enumura1</h1>
         <p className="text-lg md:text-2xl lg:text-3xl mb-6 md:mb-8">
           <span className="text-gray-600 dark:text-gray-300">
-            Software Engineer
+            {language === 'ja' ? 'ソフトウェアエンジニア' : 'Software Engineer'}
           </span>
         </p>
         <div className="flex flex-wrap gap-x-5 md:gap-x-7 gap-y-2 md:gap-y-3 justify-center md:justify-start items-center">

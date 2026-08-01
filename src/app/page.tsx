@@ -12,7 +12,6 @@ import { Footer } from '@/components/static/Footer'
 // dynamic
 import { Articles } from '@/components/dynamic/Articles'
 import { Zenn } from '@/components/dynamic/Zenn'
-import { Blog } from '@/components/dynamic/Blog'
 
 export default function Home() {
   return (
@@ -26,7 +25,6 @@ export default function Home() {
         <Certifications />
         <Articles />
         <Zenn />
-        <Blog />
         <Projects />
         <OSSContributions />
         <Footer />

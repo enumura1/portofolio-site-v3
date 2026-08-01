@@ -1,10 +1,15 @@
+"use client"
+
 import Link from 'next/link'
 import { GitPullRequest, ExternalLink } from 'lucide-react'
+import { useLanguage } from '@/components/ui/language-provider'
 
 export function OSSContributions() {
+  const { language } = useLanguage()
+
   return (
     <section className="py-20 px-4 max-w-4xl mx-auto" id="oss-contributions">
-      <h2 className="text-4xl font-bold mb-8">🚀 Open Source Contributions</h2>
+      <h2 className="text-4xl font-bold mb-8">🚀 {language === 'ja' ? 'OSSコントリビュート' : 'Open Source Contributions'}</h2>
 
       {/* メインCTAカード */}
       <div className="bg-gray-50 dark:bg-gray-800
@@ -20,11 +25,12 @@ export function OSSContributions() {
           
           <div className="flex-1">
             <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
-              Contributing to Open Source
+              {language === 'ja' ? 'オープンソースへのコントリビュート' : 'Contributing to Open Source'}
             </h3>
             <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
-              Contributing to external open source projects and communities. 
-              View my complete contribution history and pull requests.
+              {language === 'ja'
+                ? '外部のオープンソースプロジェクトやコミュニティへのコントリビュート。コントリビュート履歴・プルリクエスト一覧。'
+                : 'Contributing to external open source projects and communities. View my complete contribution history and pull requests.'}
             </p>
             
             {/* テキストリンク */}
@@ -32,7 +38,7 @@ export function OSSContributions() {
               href="/oss-contributions"
               className="text-blue-500 hover:text-blue-400 inline-flex items-center group text-sm"
             >
-              <span className="mr-1">View All Contributions</span>
+              <span className="mr-1">{language === 'ja' ? 'すべてのコントリビュートを見る' : 'View All Contributions'}</span>
               <ExternalLink className="w-3 h-3" />
             </Link>
           </div>

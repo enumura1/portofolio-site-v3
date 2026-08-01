@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { ThemeSwitcher } from '@/components/ui/theme-switcher'
+import { LanguageSwitcher } from '@/components/ui/language-switcher'
 import { useState, useEffect, useRef } from 'react'
 
 export function Header() {
@@ -38,7 +39,7 @@ export function Header() {
         <div className="mx-auto px-2 sm:px-4">
           <div className="backdrop-blur-md bg-white/80 dark:bg-white/10 border border-gray-200/30 dark:border-white/20 rounded-2xl m-1 sm:m-2 md:m-4 shadow-lg transition-all duration-300">
             <div className={`flex items-center justify-between px-2 sm:px-3 md:px-6 transition-all duration-300 ${
-              isScrolled ? 'h-8 sm:h-10 md:h-14' : 'h-10 sm:h-12 md:h-20'
+              isScrolled ? 'h-10 sm:h-12 md:h-14' : 'h-12 sm:h-14 md:h-20'
             }`}>
               <div 
                 className="flex items-center space-x-2 md:space-x-5 cursor-pointer" 
@@ -62,9 +63,8 @@ export function Header() {
                   enumura1
                 </span>
               </div>
-              <div className={`transition-all duration-300 ${
-                isScrolled ? 'scale-75 sm:scale-80 md:scale-85' : 'scale-80 sm:scale-90 md:scale-100'
-              }`}>
+              <div className="flex items-center gap-2">
+                <LanguageSwitcher />
                 <ThemeSwitcher />
               </div>
             </div>

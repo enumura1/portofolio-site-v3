@@ -1,4 +1,7 @@
+"use client";
+
 import { ExternalLink } from 'lucide-react';
+import { useLanguage } from '@/components/ui/language-provider';
 
 type Certification = {
   title: string;
@@ -33,9 +36,11 @@ const certifications: Certification[] = [
 ];
 
 export function Certifications() {
+  const { language } = useLanguage();
+
   return (
     <section className="py-20 px-4 max-w-4xl mx-auto" id="certifications">
-      <h2 className="text-4xl font-bold mb-8">⌨Certifications</h2>
+      <h2 className="text-4xl font-bold mb-8">⌨ {language === 'ja' ? '資格' : 'Certifications'}</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {certifications.map((cert, index) => (
           <div 
@@ -58,7 +63,7 @@ export function Certifications() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center text-blue-500 hover:text-blue-400 transition-all group"
                 >
-                  <span className="mr-1">View certification details</span>
+                  <span className="mr-1">{language === 'ja' ? '資格の詳細を見る' : 'View certification details'}</span>
                   <ExternalLink 
                     size={14} 
                     className="transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" 
