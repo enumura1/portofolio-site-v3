@@ -6,8 +6,8 @@ import { useLanguage } from '@/components/ui/language-provider';
 type CommandHistory = { command: string; output: string };
 
 const skillSummary = {
-  ja: 'フロントエンド: JavaScript, TypeScript, React\nバックエンド: Kotlin, Node.js, Python\nデータベース・検索: PostgreSQL, DynamoDB, Aurora, Redshift, OpenSearch\nクラウド: AWS, Google Cloud\nインフラ: Kubernetes, Docker, Terraform, CloudFormation\nデータ処理: Kafka, Airflow\nAIツール: Claude Code, Codex',
-  en: 'Frontend: JavaScript, TypeScript, React\nBackend: Kotlin, Node.js, Python\nData & Search: PostgreSQL, DynamoDB, Aurora, Redshift, OpenSearch\nCloud: AWS, Google Cloud\nInfrastructure: Kubernetes, Docker, Terraform, CloudFormation\nData Processing: Kafka, Airflow\nAI Tools: Claude Code, Codex',
+  ja: 'フロントエンド: TypeScript, React\nバックエンド: Kotlin, Node.js\nクラウド・インフラ: AWS, Kubernetes, Terraform\nデータ処理: Kafka, Airflow\nAIツール: Claude Code, Codex\n...',
+  en: 'Frontend: TypeScript, React\nBackend: Kotlin, Node.js\nCloud & Infrastructure: AWS, Kubernetes, Terraform\nData Processing: Kafka, Airflow\nAI Tools: Claude Code, Codex\n...',
 };
 
 function initialCommands(language: 'ja' | 'en'): CommandHistory[] {
